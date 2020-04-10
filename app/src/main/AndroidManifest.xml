@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".presentation.MainActivity">
         </activity>
-        <activity android:name=".rxjava_study.ExampleActivity">
+        <activity android:name=".rxjavastudy.ExampleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

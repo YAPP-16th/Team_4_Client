@@ -1,4 +1,4 @@
-package kr.yapp.teamplay.rxjava_study
+package kr.yapp.teamplay.rxjavastudy
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -5,10 +5,10 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.yapp.teamplay.rxjava_study.ExampleViewModel" />
+            type="kr.yapp.teamplay.rxjavastudy.ExampleViewModel" />
         <variable
             name="data"
-            type="kr.yapp.teamplay.rxjava_study.model.Result" />
+            type="kr.yapp.teamplay.rxjavastudy.model.Result" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"

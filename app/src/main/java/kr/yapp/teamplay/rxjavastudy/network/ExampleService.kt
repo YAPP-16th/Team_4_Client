@@ -1,7 +1,7 @@
-package kr.yapp.teamplay.rxjava_study.network
+package kr.yapp.teamplay.rxjavastudy.network
 
 import io.reactivex.Observable
-import kr.yapp.teamplay.rxjava_study.model.Result
+import kr.yapp.teamplay.rxjavastudy.model.Result
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

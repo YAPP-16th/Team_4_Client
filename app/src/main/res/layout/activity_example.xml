@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.yapp.teamplay.rxjava_study.ExampleViewModel" />
+            type="kr.yapp.teamplay.rxjavastudy.ExampleViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

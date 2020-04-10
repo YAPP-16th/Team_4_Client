@@ -1,4 +1,4 @@
-package kr.yapp.teamplay.rxjava_study
+package kr.yapp.teamplay.rxjavastudy
 
 import android.util.Log
 import androidx.annotation.MainThread
