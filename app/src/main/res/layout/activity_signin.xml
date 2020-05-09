@@ -22,7 +22,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:tint="@color/colorLightGrey"
+            android:tint="@color/colorVeryLightPink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+            app:layout_constraintTop_toTopOf="parent">
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/btn_next"
@@ -48,16 +50,16 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="55dp"
             android:layout_marginBottom="90dp"
-            android:background="@drawable/onboarding_roundbutton"
+            android:background="@drawable/onboarding_round_button"
             android:backgroundTint="@color/colorTransparentGrey"
             android:onClick="@{() -> signinViewModel.clickSignInEmailButton()}"
             android:text="@string/next"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/btn_signin_finish"
@@ -65,15 +67,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="55dp"
             android:layout_marginBottom="90dp"
-            android:background="@drawable/onboarding_roundbutton"
+            android:background="@drawable/onboarding_round_button"
             android:backgroundTint="@color/colorTransparentGrey"
             android:text="@string/signin_btn"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/btn_signup_email"
@@ -81,15 +83,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="55dp"
             android:layout_marginBottom="90dp"
-            android:background="@drawable/onboarding_roundbutton"
+            android:background="@drawable/onboarding_round_button"
             android:backgroundTint="@color/colorTransparentGrey"
             android:text="signup_email_btn"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/btn_signup_password"
@@ -97,15 +99,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="55dp"
             android:layout_marginBottom="90dp"
-            android:background="@drawable/onboarding_roundbutton"
+            android:background="@drawable/onboarding_round_button"
             android:backgroundTint="@color/colorTransparentGrey"
             android:text="@string/signup_password"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/btn_signup_nickname"
@@ -113,15 +115,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="55dp"
             android:layout_marginBottom="90dp"
-            android:background="@drawable/onboarding_roundbutton"
+            android:background="@drawable/onboarding_round_button"
             android:backgroundTint="@color/colorTransparentGrey"
             android:text="@string/signin_btn"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
