@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -23,20 +24,45 @@
                 android:id="@+id/team_create_thumbnail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/img_team_create_thumbnail"
+                android:alpha="0.8"
                 android:scaleType="fitXY"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/img_team_create_thumbnail"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="180dp"
-                android:src="@drawable/gradation_box"
                 android:scaleType="fitXY"
+                android:src="@drawable/gradation_box"
                 app:layout_constraintBottom_toBottomOf="@id/team_create_thumbnail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/team_create_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_left_white" />
+
+            <TextView
+                android:id="@+id/team_create_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/sf_pro_bold"
+                android:text="팀만들기"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/team_create_back_button"
+                app:layout_constraintBottom_toBottomOf="@id/team_create_back_button"
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:id="@+id/team_create_name_warning"
@@ -45,49 +71,470 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginBottom="30dp"
                 android:text="10자 이내 특수문자 불가"
-                android:textSize="12sp"
                 android:textColor="@color/colorWarmGrey"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/team_create_thumbnail"/>
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/team_create_thumbnail"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/team_create_name_edit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
                 android:layout_marginBottom="6dp"
-                android:text="팀이름을 입력하세요"
-                android:textColor="@color/colorBoldBlack"
-                android:textSize="26sp"
+                android:background="@null"
                 android:fontFamily="@font/sf_pro_bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/team_create_name_warning"/>
+                android:hint="팀이름을 입력하세요"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/colorBoldBlack"
+                android:textColorHint="@color/colorBoldBlack"
+                android:textSize="26sp"
+                app:layout_constraintBottom_toTopOf="@id/team_create_name_warning"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
                 android:layout_marginStart="36dp"
-                app:cardElevation="0dp"
-                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="4dp"
                 app:cardBackgroundColor="@color/colorBasketBallRed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/team_create_name_edit_text">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@id/team_create_name_edit_text"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="4dp"
                     android:text="Basketball"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp" />
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/team_create_input_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_thumbnail">
+
+                <TextView
+                    android:id="@+id/team_create_since_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="팀 설립일"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*필수입력 항목입니다"
+                    android:textColor="@color/colorWarmGrey"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/team_create_since_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/team_create_since_hint" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spinner_year"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_basketball_red_round8_stroke"
+                    android:padding="4dp"
+                    app:layout_constraintEnd_toStartOf="@id/spinner_month"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_since_hint">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/appCompatSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@null"
+                        android:entries="@array/team_create_since_year"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_arrow_down_red"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spinner_month"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_basketball_red_round8_stroke"
+                    android:padding="4dp"
+                    app:layout_constraintEnd_toStartOf="@id/spinner_day"
+                    app:layout_constraintStart_toEndOf="@id/spinner_year"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_since_hint">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/appCompatSpinner2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@null"
+                        android:entries="@array/team_create_since_month"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_arrow_down_red"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spinner_day"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_basketball_red_round8_stroke"
+                    android:padding="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/spinner_month"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_since_hint">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@null"
+                        android:entries="@array/team_create_since_month"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_arrow_down_red"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/team_create_line_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/colorVeryLightPink"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_input_layout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/team_create_character_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_line_1">
+
+                <TextView
+                    android:id="@+id/team_create_character_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="팀 성격"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*필수입력 항목입니다"
+                    android:textColor="@color/colorWarmGrey"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/team_create_character_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/team_create_character_hint" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/team_create_character_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/colorTeamCharacter1"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_character_hint">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/sf_pro_bold"
+                        android:text="회식조아"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12dp"
+                        tools:ignore="SpUsage" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/team_create_character_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/colorTeamCharacter2"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toEndOf="@id/team_create_character_1"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_character_hint">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/sf_pro_bold"
+                        android:text="실력중심"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12dp"
+                        tools:ignore="SpUsage" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/team_create_character_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/colorTeamCharacter3"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toEndOf="@id/team_create_character_2"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_character_hint">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/sf_pro_bold"
+                        android:text="3대3"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12dp"
+                        tools:ignore="SpUsage" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/team_create_character_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/colorTeamCharacter4"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toEndOf="@id/team_create_character_3"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_character_hint">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/sf_pro_bold"
+                        android:text="반코트"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12dp"
+                        tools:ignore="SpUsage" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/team_create_character_add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="+추가하기"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@id/team_create_character_4"
+                    app:layout_constraintStart_toEndOf="@id/team_create_character_4"
+                    app:layout_constraintTop_toTopOf="@id/team_create_character_4"
+                    tools:ignore="SpUsage" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/team_create_line_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/colorVeryLightPink"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_character_layout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/team_create_location_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_line_2">
+
+                <TextView
+                    android:id="@+id/team_create_location_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="팀 활동지역"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*필수입력 항목입니다"
+                    android:textColor="@color/colorWarmGrey"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/team_create_location_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/team_create_location_hint" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/appCompatEditText2"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_basketball_red_round8_stroke"
+                    android:hint="대한민국 서울특별시 마포구 상암동"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textColorHint="@color/colorWireFrameFont"
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_location_hint"
+                    tools:ignore="SpUsage" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/team_create_line_3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/colorVeryLightPink"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_location_layout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/team_create_introduce_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="42dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_line_3">
+
+                <TextView
+                    android:id="@+id/team_create_introduce_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="간단 팀 소개"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/appCompatEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_gray_round8_solid"
+                    android:hint="팀을 간단하게 설명해주세요! (200자 이내)"
+                    android:lineHeight="16sp"
+                    android:maxLength="200"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textColorHint="@color/colorWireFrameBackground"
+                    android:textSize="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_introduce_hint"
+                    tools:ignore="SpUsage"
+                    tools:targetApi="p" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
