@@ -13,6 +13,7 @@
     <string name="start_for_kakao">카카오톡으로 시작하기</string>
     <string name="start_for_naver">네이버로 시작하기</string>
     <string name="start_for_google">구글로 시작하기</string>
+    <string name="start_for_email_onboarding">이메일로 시작하기</string>
 
     <!--signIn, signUp page-->
     <string name="start_for_email">이메일로 빠르게 팀플레이 시작!</string>

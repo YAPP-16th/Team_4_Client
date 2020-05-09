@@ -11,7 +11,11 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorVeryLightPink">#f1f1f1</color>
 
-    <color name="brownGrey">#828282</color>
     <color name="colorTransparentGrey">#4D828282</color>
+    <color name="colorKakao">#f6e14b</color>
+    <color name="colorKakaoText">#262626</color>
+    <color name="colorNaver">#3dc426</color>
+    <color name="colorGoogle">#da4835</color>
+    <color name="colorRed">#ff4d41</color>
 
 </resources>

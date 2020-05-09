@@ -18,18 +18,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/signup_nickname"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_signup_nickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foregroundTint="#FFFFFF"
-            android:inputType="textEmailAddress"
-            android:textColorHighlight="#FFFFFF"
-            android:textColorLink="#FFFFFF"
+            android:theme="@style/EditTextStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +34,11 @@
             app:layout_constraintVertical_bias="0.2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_signup_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorWhite"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
