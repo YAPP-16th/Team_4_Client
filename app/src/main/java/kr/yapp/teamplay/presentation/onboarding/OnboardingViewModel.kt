@@ -1,6 +1,5 @@
 package kr.yapp.teamplay.presentation.onboarding
 
-import android.view.View
 import androidx.lifecycle.ViewModel
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 

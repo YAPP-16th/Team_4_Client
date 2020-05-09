@@ -8,5 +8,6 @@ data class MyTeam(
     val teamName: String = "상암동 농구클럽",
     val teamLocation: String = "서울시 마포구 우리기술사옥",
     val since: String = "2020.04.30",
-    val userCount: Int = 30
+    val userCount: Int = 30,
+    val isCreateCard: Boolean = false
 )

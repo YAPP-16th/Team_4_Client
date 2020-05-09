@@ -1,12 +1,6 @@
 package kr.yapp.teamplay.presentation.signin
 
-import android.util.Log
-import android.view.View
 import androidx.lifecycle.ViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import kr.yapp.teamplay.data.MainRepository
-import kr.yapp.teamplay.domain.MainRepositoryImpl
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 
 class SigninViewModel() : ViewModel(){

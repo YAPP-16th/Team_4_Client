@@ -19,7 +19,11 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity"/>
-
+        <activity
+            android:name=".presentation.myteam.create.TeamCreateActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".presentation.myteam.MyTeamSelectActivity"
             android:launchMode="singleTop"

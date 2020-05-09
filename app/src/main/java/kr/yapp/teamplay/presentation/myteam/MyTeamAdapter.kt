@@ -3,7 +3,6 @@
  */
 package kr.yapp.teamplay.presentation.myteam
 
-import android.app.Activity
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,7 +14,9 @@ import kr.yapp.teamplay.databinding.RvItemMyTeamBinding
 import kr.yapp.teamplay.domain.entity.MyTeam
 import kr.yapp.teamplay.util.dpToPixel
 
-class MyTeamAdapter : RecyclerView.Adapter<MyTeamAdapter.MyTeamViewHolder>() {
+class MyTeamAdapter(
+    private val onCardClick: () -> Unit = {}
+) : RecyclerView.Adapter<MyTeamAdapter.MyTeamViewHolder>() {
 
     private val teams: ArrayList<MyTeam> = arrayListOf()
 
@@ -48,6 +49,12 @@ class MyTeamAdapter : RecyclerView.Adapter<MyTeamAdapter.MyTeamViewHolder>() {
             binding.myTeam = myTeam
             (itemView.context as AppCompatActivity).windowManager.defaultDisplay.getMetrics(displayMetrics)
             itemView.layoutParams.width = (displayMetrics.widthPixels.toDouble() - 64.dpToPixel()).toInt()
+
+            if(myTeam.isCreateCard) {
+                binding.rvMyTeamRootLayout.setOnClickListener {
+                    onCardClick()
+                }
+            }
         }
     }
 }
