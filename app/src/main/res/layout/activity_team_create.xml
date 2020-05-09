@@ -89,7 +89,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/colorBoldBlack"
-                android:textColorHint="@color/colorWireFrameFont"
+                android:textColorHint="@color/colorBoldBlack"
                 android:textSize="26sp"
                 android:textCursorDrawable="@color/colorBasketBallRed2"
                 app:layout_constraintBottom_toTopOf="@id/team_create_name_warning"
@@ -499,7 +499,7 @@
                 android:paddingStart="16dp"
                 android:paddingTop="20dp"
                 android:paddingEnd="16dp"
-                android:paddingBottom="42dp"
+                android:paddingBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/team_create_line_3">
@@ -534,6 +534,79 @@
                     app:layout_constraintTop_toBottomOf="@id/team_create_introduce_hint"
                     tools:ignore="SpUsage"
                     tools:targetApi="p" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/team_create_line_4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/colorVeryLightPink"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_create_introduce_layout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="64dp"
+                app:layout_constraintTop_toBottomOf="@id/team_create_line_4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/team_create_question_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="가입 질문"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/team_create_question_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_question_hint"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                </LinearLayout>
+                
+                <EditText
+                    android:id="@+id/team_create_leave_contact"
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_basketball_red_round8_stroke"
+                    android:inputType="textNoSuggestions"
+                    android:hint="검토후 팀리더가 연락을 드릴 예정입니다. 연락이 가능한\n연락처 또는 카카오톡 아이디를 남겨주세요."
+                    android:textSize="14dp"
+                    android:textColor="@color/colorBoldBlack"
+                    android:textColorHint="@color/colorWireFrameFont"
+                    android:gravity="start"
+                    android:lineHeight="24sp"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_question_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="SpUsage" />
+
+                <ImageView
+                    android:id="@+id/question_create_button"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="16dp"
+                    app:srcCompat="@drawable/ic_plus"
+                    app:layout_constraintTop_toBottomOf="@id/team_create_leave_contact"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

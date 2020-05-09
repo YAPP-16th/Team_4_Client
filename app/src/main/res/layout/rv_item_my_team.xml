@@ -107,7 +107,8 @@
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="2017.02.11 창설  |  현재회원수 52명"/>
+                    tools:text="2017.02.11 창설  |  현재회원수 52명"
+                    tools:ignore="SpUsage" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

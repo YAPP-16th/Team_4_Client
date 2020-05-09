@@ -5,7 +5,9 @@ package kr.yapp.teamplay.presentation.myteam.create
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -44,6 +46,27 @@ class TeamCreateActivity : AppCompatActivity() {
         binding.teamCreateBackButton.setOnClickListener {
             onBackPressed()
         }
+
+        binding.questionCreateButton.setOnClickListener {
+            addQuestionEditText()
+        }
+    }
+
+    private fun addQuestionEditText() {
+        LayoutInflater
+            .from(this)
+            .inflate(R.layout.item_team_create_question, null).let { view ->
+                ViewGroup.MarginLayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    bottomMargin = 24
+                }.let { params->
+                    view.layoutParams = params
+                }.also {
+                    binding.teamCreateQuestionLayout.addView(view)
+                }
+            }
     }
 
 }

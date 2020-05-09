@@ -28,10 +28,13 @@
     <style name="EditTextStyle" parent="Widget.Design.TextInputLayout">
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@android:color/white</item>
-        <item name="android:textCursorDrawable">@android:color/white</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textColorHint">@android:color/white</item>
-        <item name="android:textColorHighlight">@android:color/white</item>
+        <item name="android:textColor">@color/colorBoldBlack</item>
+        <item name="android:textColorHint">@color/colorWireFrameFont</item>
+        <item name="android:fontFamily">@font/sf_pro_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="background">@null</item>
+        <item name="android:textCursorDrawable">@color/colorBasketBallRed2</item>
+        <item name="android:textColorHighlight">@color/colorBasketBallRed2</item>
     </style>
 
 </resources>
