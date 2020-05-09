@@ -5,8 +5,12 @@
     <color name="colorPrimaryDark">#828282</color>
     <color name="colorAccent">#d7d7d7</color>
 
+    <color name="colorGradientStart">#ff883e</color>
+    <color name="colorGradientEnd">#fc5851</color>
+
     <color name="colorWireFrameFont">#7d7d7d</color>
     <color name="colorWireFrameBackground">#d7d7d7</color>
+    <color name="colorWireFrameBackgroundOpacity40">#80d7d7d7</color>
     <color name="colorWarmGrey">#828282</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorVeryLightPink">#f1f1f1</color>

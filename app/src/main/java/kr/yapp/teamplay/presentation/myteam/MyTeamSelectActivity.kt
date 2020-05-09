@@ -4,7 +4,9 @@
 package kr.yapp.teamplay.presentation.myteam
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -32,6 +34,7 @@ class MyTeamSelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBinding()
+        transStatusWhiteTextBar()
         setRecyclerView()
     }
 
@@ -55,10 +58,11 @@ class MyTeamSelectActivity : AppCompatActivity() {
             }.attachToRecyclerView(this)
         }
     }
-}
 
-//val category: String = "basketball",
-//    val teamName: String = "상암동 농구클럽",
-//    val teamLocation: String = "서울시 마포구 우리기술사옥",
-//    val since: String = "2020.04.30",
-//    val userCount: Int = 30,
+    private fun transStatusWhiteTextBar() {
+        window.run {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            statusBarColor = Color.TRANSPARENT
+        }
+    }
+}

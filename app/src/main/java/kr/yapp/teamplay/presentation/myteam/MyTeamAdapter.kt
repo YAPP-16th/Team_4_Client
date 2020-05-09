@@ -47,8 +47,8 @@ class MyTeamAdapter(
 
         fun bindTo(myTeam: MyTeam) {
             binding.myTeam = myTeam
-            (itemView.context as AppCompatActivity).windowManager.defaultDisplay.getMetrics(displayMetrics)
-            itemView.layoutParams.width = (displayMetrics.widthPixels.toDouble() - 64.dpToPixel()).toInt()
+//            (itemView.context as AppCompatActivity).windowManager.defaultDisplay.getMetrics(displayMetrics)
+//            itemView.layoutParams.width = (displayMetrics.widthPixels.toDouble() - 64.dpToPixel()).toInt()
 
             if(myTeam.isCreateCard) {
                 binding.rvMyTeamRootLayout.setOnClickListener {

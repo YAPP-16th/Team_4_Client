@@ -24,6 +24,7 @@ class TeamCreateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setBinding()
         transStatusWhiteTextBar()
+        setListener()
     }
 
     private fun setBinding() {
@@ -36,6 +37,12 @@ class TeamCreateActivity : AppCompatActivity() {
         window.run {
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             statusBarColor = Color.TRANSPARENT
+        }
+    }
+
+    private fun setListener() {
+        binding.teamCreateBackButton.setOnClickListener {
+            onBackPressed()
         }
     }
 
