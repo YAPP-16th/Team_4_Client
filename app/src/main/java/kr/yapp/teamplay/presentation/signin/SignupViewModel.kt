@@ -10,9 +10,8 @@ import kr.yapp.teamplay.presentation.util.HashingPassword
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 
 class SignupViewModel(
-    private val signupUsecase : SignupUsecase = SignupUsecase(
-        AuthRepositoryImpl()
-    )
+    private val signupUsecase : SignupUsecase =
+        SignupUsecase(AuthRepositoryImpl())
 ) : ViewModel() {
     val signUpEmailClick : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpPasswordClick : SingleLiveEvent<Void> = SingleLiveEvent()
@@ -20,8 +19,14 @@ class SignupViewModel(
     val signUpEmailFinish : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpPasswordFinish : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpNicknameFinish : SingleLiveEvent<Void> = SingleLiveEvent()
+
+    val signUpEmailError : SingleLiveEvent<Void> = SingleLiveEvent()
+    val signUpPasswordError : SingleLiveEvent<Void> = SingleLiveEvent()
+    val signUpNicknameError : SingleLiveEvent<Void> = SingleLiveEvent()
+
     val signupEmail : MutableLiveData<String> = MutableLiveData()
     val signupPassword : MutableLiveData<String> = MutableLiveData()
+    val signupNickname : MutableLiveData<String> = MutableLiveData()
 
     fun clickSignUpEmailButton() {
         signUpEmailClick.call()
@@ -35,27 +40,60 @@ class SignupViewModel(
         signUpNicknameClick.call()
     }
 
-    fun inputSignUpEmail() {
+    fun checkCorrectEmail() {
         //유효한 이메일인지 체크
-        signUpEmailFinish.call()
+        val emailRegExp = "^[a-zA-Z0-9._%^-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$".toRegex()
+        val matchResult = emailRegExp.matches(signupEmail.value.toString())
+
+        if (matchResult) {
+            signUpEmailFinish.call()
+        } else {
+            signUpEmailError.call()
+        }
     }
 
-    fun inputSignUpPassword() {
+    fun checkCorrectPassword() {
         //유효한 패스워드인지 체크
-        signUpPasswordFinish.call()
+        val passwordRegExp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[0-9]).{8,20}$".toRegex()
+        val matchResult = passwordRegExp.matches(signupPassword.value.toString())
+
+        if (matchResult) {
+            signUpPasswordFinish.call()
+        } else {
+            signUpPasswordError.call()
+        }
     }
 
-    fun inputSignUpNickname(nickname : String) {
+    fun checkCorrectNickname() {
         //유효한 닉네임인지 체크
-        val email = signupEmail.value.toString()
-        val hashedPassword = HashingPassword().hashString(signupPassword.value.toString(), "SHA-256")
-        signupUsecase.doSignup(email, nickname, hashedPassword)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                signUpNicknameFinish.call()
-            }, {
-                it.localizedMessage
-            })
+        val nicknameRegExp = "^[a-zA-Z0-9가-힣].{2,16}$".toRegex()
+        val matchResult = nicknameRegExp.matches(signupNickname.value.toString())
+
+        if (matchResult) {
+            val email = signupEmail.value.toString()
+            val hashedPassword = HashingPassword().hashString(signupPassword.value.toString(), "SHA-256")
+            signupUsecase.doSignup(email, signupNickname.value.toString(), hashedPassword)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    signUpNicknameFinish.call()
+                }, {
+                    it.localizedMessage
+                })
+        } else {
+            signUpNicknameError.call()
+        }
+    }
+
+    fun setSignupEmail(email : String) {
+        signupEmail.value = email
+    }
+
+    fun setSignupPassword(password : String) {
+        signupPassword.value = password
+    }
+
+    fun setSignupNickname(nickname : String) {
+        signupNickname.value = nickname
     }
 }

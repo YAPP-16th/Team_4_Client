@@ -1,9 +1,9 @@
 package kr.yapp.teamplay.domain.repository
 
 import io.reactivex.Single
-import kr.yapp.teamplay.data.auth.EmailCheckResponse
-import kr.yapp.teamplay.data.auth.SigninResponse
-import kr.yapp.teamplay.data.auth.SignupResponse
+import kr.yapp.teamplay.data.auth.signin.EmailCheckResponse
+import kr.yapp.teamplay.data.auth.signin.SigninResponse
+import kr.yapp.teamplay.data.auth.signup.SignupResponse
 
 interface AuthRepository {
 

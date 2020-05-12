@@ -2,6 +2,11 @@ package kr.yapp.teamplay.data.auth
 
 import io.reactivex.Single
 import kr.yapp.teamplay.data.*
+import kr.yapp.teamplay.data.auth.signin.EmailCheckResponse
+import kr.yapp.teamplay.data.auth.signin.SigninRequest
+import kr.yapp.teamplay.data.auth.signin.SigninResponse
+import kr.yapp.teamplay.data.auth.signup.SignupRequest
+import kr.yapp.teamplay.data.auth.signup.SignupResponse
 import kr.yapp.teamplay.domain.repository.AuthRepository
 
 class AuthRepositoryImpl(
@@ -11,7 +16,10 @@ class AuthRepositoryImpl(
 ) : AuthRepository {
     override fun signInByEmailRequest(email : String, hashedPassword : String): Single<SigninResponse> {
         val signinRequest =
-            SigninRequest(email, hashedPassword)
+            SigninRequest(
+                email,
+                hashedPassword
+            )
         return authService.signInByEmailRequest(signinRequest)
     }
 

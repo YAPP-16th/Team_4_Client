@@ -1,6 +1,11 @@
 package kr.yapp.teamplay.data.auth
 
 import io.reactivex.Single
+import kr.yapp.teamplay.data.auth.signin.EmailCheckResponse
+import kr.yapp.teamplay.data.auth.signin.SigninRequest
+import kr.yapp.teamplay.data.auth.signin.SigninResponse
+import kr.yapp.teamplay.data.auth.signup.SignupRequest
+import kr.yapp.teamplay.data.auth.signup.SignupResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST

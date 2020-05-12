@@ -1,4 +1,4 @@
-package kr.yapp.teamplay.data.auth
+package kr.yapp.teamplay.data.auth.signup
 
 import com.google.gson.annotations.SerializedName
 

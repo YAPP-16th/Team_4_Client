@@ -1,5 +1,6 @@
 package kr.yapp.teamplay.presentation.signin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,20 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_signin.*
 import kotlinx.android.synthetic.main.fragment_signin_email.*
 import kotlinx.android.synthetic.main.fragment_signin_password.*
-import kotlinx.android.synthetic.main.fragment_signup_email.*
-import kotlinx.android.synthetic.main.fragment_signup_nickname.*
-import kotlinx.android.synthetic.main.fragment_signup_password.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivitySigninBinding
+import kr.yapp.teamplay.presentation.myteam.MyTeamSelectActivity
 
-class SigninActivity : AppCompatActivity(){
+class SigninActivity : AppCompatActivity() {
 
     private val signinViewModel: SigninViewModel by lazy {
         ViewModelProvider(this).get(SigninViewModel::class.java)
-    }
-
-    private val signupViewModel: SignupViewModel by lazy {
-        ViewModelProvider(this).get(SignupViewModel::class.java)
     }
 
     private lateinit var binding: ActivitySigninBinding
@@ -31,46 +26,31 @@ class SigninActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
 
         setDataBinding()
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, SigninEmailFragment()).commit()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, SigninEmailFragment()).commit()
         setLiveDataObserver()
     }
 
     fun setDataBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signin)
         binding.lifecycleOwner = this
-        binding.signinViewModel = signinViewModel
-        binding.signupViewModel = signupViewModel
+        binding.viewModel = signinViewModel
     }
 
-    fun setLiveDataObserver(){
+    fun setLiveDataObserver() {
         signinViewModel.signInEmailClick.observe(this, Observer {
-            signinViewModel.checkAlreadyUser(input_signin_email.text.toString())
+            signinViewModel.setSigninEmail(et_signin_email.text.toString())
+            signinViewModel.checkAlreadyUser()
         })
 
-        /*
-        already registered input email
-         */
         signinViewModel.signInStart.observe(this, Observer {
-            signinViewModel.setSigninEmail(input_signin_email.text.toString())
             goToSigninPassword()
             btn_next.visibility = View.INVISIBLE
             btn_signin_finish.visibility = View.VISIBLE
         })
 
-        /*
-        not registered input email
-         */
-        signinViewModel.signUpStart.observe(this, Observer {
-            goToSignupEmail()
-            btn_next.visibility = View.INVISIBLE
-            btn_signup_email.visibility = View.VISIBLE
-        })
-
-        /*
-        submit password for signin in signinpassword Page
-         */
         signinViewModel.signInPasswordClick.observe(this, Observer {
-            signinViewModel.checkEmailPassword(input_signin_password.text.toString())
+            signinViewModel.checkEmailPassword()
         })
 
         /*
@@ -81,65 +61,48 @@ class SigninActivity : AppCompatActivity(){
         })
 
         /*
-        failure Signin
+        enter an unregistered email
          */
-        signinViewModel.signInError.observe(this, Observer {
-            showInputPasswordError()
+        signinViewModel.signUpStart.observe(this, Observer {
+            goToSignupPage()
         })
 
-        signupViewModel.signUpEmailClick.observe(this, Observer {
-            signupViewModel.signupEmail.value = input_signup_email.text.toString()
-            signupViewModel.inputSignUpEmail()
+        signinViewModel.signInEmailError.observe(this, Observer {
+            signinViewModel.setSigninPassword(et_signin_password.text.toString())
+            setErrorSigninEmail()
         })
 
-        signupViewModel.signUpEmailFinish.observe(this, Observer {
-            goToSignupPassword()
-            btn_signup_email.visibility = View.INVISIBLE
-            btn_signup_password.visibility = View.VISIBLE
-        })
-
-        signupViewModel.signUpPasswordClick.observe(this, Observer {
-            signupViewModel.signupPassword.value = input_signup_password.text.toString()
-            signupViewModel.inputSignUpPassword()
-        })
-
-        signupViewModel.signUpPasswordFinish.observe(this, Observer {
-            goToSignupNickname()
-            btn_signup_password.visibility = View.INVISIBLE
-            btn_signup_nickname.visibility = View.VISIBLE
-        })
-
-        signupViewModel.signUpNicknameClick.observe(this, Observer {
-            signupViewModel.inputSignUpNickname(input_signup_nickname.text.toString())
-        })
-
-        signupViewModel.signUpNicknameFinish.observe(this, Observer {
-            goToMain()
+        signinViewModel.signInPasswordError.observe(this, Observer {
+            setErrorSigninPassword()
         })
     }
 
-    private fun showInputPasswordError() {
-        //패스워드 에러 났을 때 에러 표시
-
+    fun goToSigninPassword() {
+        supportFragmentManager.beginTransaction()
+            .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
+            .replace(R.id.fragment_container, SigninPasswordFragment()).commit()
     }
 
-    fun goToSigninPassword(){
-        supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.fragment_close_enter,R.anim.fragment_open_exit).replace(R.id.fragment_container, SigninPasswordFragment()).commit()
+    fun goToMain() {
+        val intent = Intent(this, MyTeamSelectActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
-    fun goToSignupEmail(){
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SignupEmailFragment()).commit()
+    fun goToSignupPage() {
+        val intent = Intent(this, SignupActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
-    fun goToSignupPassword(){
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SignupPasswordFragment()).commit()
+    fun setErrorSigninEmail() {
+        signin_email_errorMessage.text = resources.getText(R.string.signin_error_email)
+        input_signin_email.background.setTint(resources.getColor(R.color.colorRed))
     }
 
-    fun goToSignupNickname(){
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SignupNicknameFragment()).commit()
+    fun setErrorSigninPassword() {
+        signin_password_errorMessage.text = resources.getText(R.string.signin_error_password)
+        et_signin_password.background.setTint(resources.getColor(R.color.colorRed))
     }
 
-    fun goToMain(){
-
-    }
 }

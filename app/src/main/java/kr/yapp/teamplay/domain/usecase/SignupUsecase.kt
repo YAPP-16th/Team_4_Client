@@ -2,7 +2,7 @@ package kr.yapp.teamplay.domain.usecase
 
 import io.reactivex.Single
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
-import kr.yapp.teamplay.data.auth.SignupResponse
+import kr.yapp.teamplay.data.auth.signup.SignupResponse
 
 class SignupUsecase (
     private val repository : AuthRepositoryImpl

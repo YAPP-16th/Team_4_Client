@@ -2,7 +2,7 @@ package kr.yapp.teamplay.domain.usecase
 
 import io.reactivex.Single
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
-import kr.yapp.teamplay.data.auth.EmailCheckResponse
+import kr.yapp.teamplay.data.auth.signin.EmailCheckResponse
 
 class EmailCheckUsecase(
     private val repository : AuthRepositoryImpl
