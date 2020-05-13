@@ -1,6 +1,7 @@
 package kr.yapp.teamplay.presentation.signin
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -29,15 +30,16 @@ class SigninActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_container, SigninEmailFragment()).commit()
         setLiveDataObserver()
+        transStatusWhiteTextBar()
     }
 
-    fun setDataBinding() {
+    private fun setDataBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signin)
         binding.lifecycleOwner = this
         binding.viewModel = signinViewModel
     }
 
-    fun setLiveDataObserver() {
+    private fun setLiveDataObserver() {
         signinViewModel.signInEmailClick.observe(this, Observer {
             signinViewModel.setSigninEmail(et_signin_email.text.toString())
             signinViewModel.checkAlreadyUser()
@@ -77,32 +79,39 @@ class SigninActivity : AppCompatActivity() {
         })
     }
 
-    fun goToSigninPassword() {
+    private fun goToSigninPassword() {
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
             .replace(R.id.fragment_container, SigninPasswordFragment()).commit()
     }
 
-    fun goToMain() {
+    private fun goToMain() {
         val intent = Intent(this, MyTeamSelectActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun goToSignupPage() {
+    private fun goToSignupPage() {
         val intent = Intent(this, SignupActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun setErrorSigninEmail() {
+    private fun setErrorSigninEmail() {
         signin_email_errorMessage.text = resources.getText(R.string.signin_error_email)
         input_signin_email.background.setTint(resources.getColor(R.color.colorRed))
     }
 
-    fun setErrorSigninPassword() {
+    private fun setErrorSigninPassword() {
         signin_password_errorMessage.text = resources.getText(R.string.signin_error_password)
         et_signin_password.background.setTint(resources.getColor(R.color.colorRed))
+    }
+
+    private fun transStatusWhiteTextBar() {
+        window.run {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            statusBarColor = Color.TRANSPARENT
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package kr.yapp.teamplay.presentation.signin
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -28,15 +29,16 @@ class SignupActivity : AppCompatActivity() {
         setDataBinding()
         supportFragmentManager.beginTransaction().add(R.id.fragment_container, SignupEmailFragment()).commit()
         setLiveDataObserver()
+        transStatusWhiteTextBar()
     }
 
-    fun setDataBinding() {
+    private fun setDataBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signup)
         binding.lifecycleOwner = this
         binding.viewModel = signupViewModel
     }
 
-    fun setLiveDataObserver() {
+    private fun setLiveDataObserver() {
         signupViewModel.signUpEmailClick.observe(this, Observer {
             signupViewModel.setSignupEmail(et_signup_email.text.toString())
             signupViewModel.checkCorrectEmail()
@@ -81,36 +83,43 @@ class SignupActivity : AppCompatActivity() {
         })
     }
 
-    fun goToSignupPassword() {
+    private fun goToSignupPassword() {
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
             .replace(R.id.fragment_container, SignupPasswordFragment()).commit()
     }
 
-    fun goToSignupNickname() {
+    private fun goToSignupNickname() {
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
             .replace(R.id.fragment_container, SignupNicknameFragment()).commit()
     }
 
-    fun goToMain() {
+    private fun goToMain() {
         val intent = Intent(this, MyTeamSelectActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun setErrorSignupEmail() {
+    private fun setErrorSignupEmail() {
         signup_email_errorMessage.text = resources.getText(R.string.signup_error_email)
         et_signup_email.background.setTint(resources.getColor(R.color.colorRed))
     }
 
-    fun setErrorSignupPassword() {
+    private fun setErrorSignupPassword() {
         signup_password_errorMessage.text = resources.getText(R.string.signup_error_password)
         et_signup_password.background.setTint(resources.getColor(R.color.colorRed))
     }
 
-    fun setErrorSignupNickname() {
+    private fun setErrorSignupNickname() {
         signup_nickname_errorMessage.text = resources.getText(R.string.signup_error_nickname)
         et_signup_nickname.background.setTint(resources.getColor(R.color.colorRed))
+    }
+
+    private fun transStatusWhiteTextBar() {
+        window.run {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            statusBarColor = Color.TRANSPARENT
+        }
     }
 }

@@ -8,6 +8,7 @@ import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
 import kr.yapp.teamplay.domain.usecase.SignupUsecase
 import kr.yapp.teamplay.presentation.util.HashingPassword
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
+import kr.yapp.teamplay.presentation.util.sha256
 
 class SignupViewModel(
     private val signupUsecase : SignupUsecase =
@@ -71,7 +72,7 @@ class SignupViewModel(
 
         if (matchResult) {
             val email = signupEmail.value.toString()
-            val hashedPassword = HashingPassword().hashString(signupPassword.value.toString(), "SHA-256")
+            val hashedPassword = signupPassword.value.toString().sha256()
             signupUsecase.doSignup(email, signupNickname.value.toString(), hashedPassword)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
