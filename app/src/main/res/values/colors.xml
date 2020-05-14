@@ -30,9 +30,13 @@
     <color name="colorTeamCharacter9">#1fb0c3</color>
 
     <color name="brownGrey">#828282</color>
-    <color name="colorTransparentGrey">#4D828282</color>
 
-    <color name="brownGrey">#828282</color>
     <color name="colorTransparentGrey">#4D828282</color>
+    <color name="colorKakao">#f6e14b</color>
+    <color name="colorKakaoLogo">#381f1f</color>
+    <color name="colorKakaoText">#262626</color>
+    <color name="colorNaver">#3dc426</color>
+    <color name="colorGoogle">#da4835</color>
+    <color name="colorRed">#ff4d41</color>
 
 </resources>

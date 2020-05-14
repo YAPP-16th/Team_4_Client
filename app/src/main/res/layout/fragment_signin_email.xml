@@ -23,8 +23,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--
+        <EditText
+            android:id="@+id/input_signin_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:text="@={viewModel.signinEmail}"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_signin_email"
+            app:layout_constraintVertical_bias="0.2"/>
+-->
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_email"
+            android:id="@+id/input_signin_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/EditTextStyle"
@@ -32,17 +47,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_signin_email"
-            app:layout_constraintVertical_bias="0.2"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@android:color/background_light">
+            app:layout_constraintVertical_bias="0.2">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_signin_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.signinEmail}"
                 android:textColor="@android:color/background_light" />
 
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/signin_email_errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+            android:textColor="@color/colorRed"
+            android:layout_marginLeft="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_signin_email"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

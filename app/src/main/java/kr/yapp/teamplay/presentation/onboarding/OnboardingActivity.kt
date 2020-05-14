@@ -37,6 +37,10 @@ class OnboardingActivity : AppCompatActivity() {
         viewModel.googleLoginClick.observe(this, Observer {
             goToSignIn()
         })
+
+        viewModel.emailLoginClick.observe(this, Observer {
+            goToSignIn()
+        })
     }
 
     fun setDataBinding() {

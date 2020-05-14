@@ -13,6 +13,7 @@
     <string name="start_for_kakao">카카오톡으로 시작하기</string>
     <string name="start_for_naver">네이버로 시작하기</string>
     <string name="start_for_google">구글로 시작하기</string>
+    <string name="start_for_email_onboarding">이메일로 시작하기</string>
 
     <!--signIn, signUp page-->
     <string name="start_for_email">이메일로 빠르게 팀플레이 시작!</string>
@@ -22,6 +23,11 @@
     <string name="signup_password">패스워드와 닉네임만 입력하면 팀플레이 시작!</string>
     <string name="signup_nickname">이제 멋진 닉네임만 정하면 끝이에요!</string>
     <string name="next">다음</string>
+    <string name="signin_error_email">올바른 이메일을 입력해주세요.</string>
+    <string name="signin_error_password">올바른 패스워드를 입력해주세요.</string>
+    <string name="signup_error_email">올바른 이메일을 입력해주세요.</string>
+    <string name="signup_error_password">올바른 패스워드를 입력해주세요.</string>
+    <string name="signup_error_nickname">올바른 닉네임을 입력해주세요.</string>
 
     <string name="myTeamUserNameHint">안녕하세요,</string>
     <string name="myTeamUserNameExample">상암동 데릭로즈님</string>

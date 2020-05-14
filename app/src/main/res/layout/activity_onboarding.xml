@@ -12,7 +12,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="36sp">
+        android:background="@drawable/bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="36sp">
 
         <ImageView
             android:id="@+id/image_logo"
@@ -29,11 +34,12 @@
             android:id="@+id/btn_kakao"
             android:layout_width="0dp"
             android:layout_height="44dp"
+            android:backgroundTint="@color/colorKakao"
             android:background="@drawable/onboarding_round_button"
-            android:onClick="@{() -> viewModel.clickKaKaoLoginButton()}"
             android:text="@string/start_for_kakao"
             android:textAlignment="center"
-            android:textColor="@color/brownGrey"
+            android:textColor="@color/colorKakaoText"
+            android:onClick="@{() -> viewModel.clickKakaoLoginButton()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,11 +61,12 @@
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorNaver"
             android:background="@drawable/onboarding_round_button"
-            android:onClick="@{() -> viewModel.clickNaverLoginButton()}"
             android:text="@string/start_for_naver"
             android:textAlignment="center"
-            android:textColor="@color/brownGrey"
+            android:textColor="@color/colorWhite"
+            android:onClick="@{() -> viewModel.clickNaverLoginButton()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_kakao" />
@@ -79,11 +86,12 @@
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorGoogle"
             android:background="@drawable/onboarding_round_button"
-            android:onClick="@{() -> viewModel.clickGoogleLoginButton()}"
             android:text="@string/start_for_google"
             android:textAlignment="center"
-            android:textColor="@color/brownGrey"
+            android:textColor="@color/colorWhite"
+            android:onClick="@{() -> viewModel.clickGoogleLoginButton()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_naver" />
@@ -98,15 +106,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/btn_google" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="150sp"
-            android:layout_height="18sp"
-            android:backgroundTint="@color/colorVeryLightPink"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_google" />
+            <TextView
+                android:id="@+id/btn_onboarding_email"
+                android:layout_width="150sp"
+                android:layout_height="18sp"
+                android:text="@string/start_for_email_onboarding"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="12dp"
+                android:onClick="@{() -> viewModel.clickEmailLoginButton()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_google" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
