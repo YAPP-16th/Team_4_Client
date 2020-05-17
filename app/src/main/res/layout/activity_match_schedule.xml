@@ -4,15 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="viewModel"
             type="kr.yapp.teamplay.presentation.match_list.MatchListViewModel" />
     </data>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -39,115 +34,12 @@
                 app:layout_constraintStart_toEndOf="@+id/match_schedule_ic_back"
                 app:layout_constraintTop_toTopOf="@+id/match_schedule_ic_back" />
 
-            <TextView
-                android:id="@+id/schedule_first_notice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/match_schedule_ic_back" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1sp"
-                android:background="@color/colorVeryLightPink"
-                android:layout_marginLeft="14dp"
-                app:layout_constraintStart_toEndOf="@+id/schedule_first_notice"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/schedule_first_notice"
-                app:layout_constraintBottom_toBottomOf="@+id/schedule_first_notice"/>
-
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/schedule_first_recyclerview"
+                android:id="@+id/match_schedule_recyclerivew"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/schedule_first_notice"/>
-
-            <TextView
-                android:id="@+id/schedule_second_notice"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/schedule_first_recyclerview" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1sp"
-                android:background="@color/colorVeryLightPink"
-                android:layout_marginLeft="14dp"
-                app:layout_constraintStart_toEndOf="@+id/schedule_second_notice"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/schedule_second_notice"
-                app:layout_constraintBottom_toBottomOf="@+id/schedule_second_notice"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/schedule_second_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/schedule_second_notice"/>
-
-            <TextView
-                android:id="@+id/schedule_host_notice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/schedule_second_recyclerview" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1sp"
-                android:background="@color/colorVeryLightPink"
-                android:layout_marginLeft="14dp"
-                app:layout_constraintStart_toEndOf="@+id/schedule_host_notice"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/schedule_host_notice"
-                app:layout_constraintBottom_toBottomOf="@+id/schedule_host_notice"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/schedule_host_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/schedule_host_notice"/>
-
-
-            <TextView
-                android:id="@+id/schedule_guest_notice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/schedule_host_recyclerview" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1sp"
-                android:background="@color/colorVeryLightPink"
-                android:layout_marginLeft="14dp"
-                app:layout_constraintStart_toEndOf="@+id/schedule_guest_notice"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/schedule_guest_notice"
-                app:layout_constraintBottom_toBottomOf="@+id/schedule_guest_notice"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/schedule_guest_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/schedule_guest_notice"/>
-
+                app:layout_constraintTop_toBottomOf="@+id/match_schedule_title"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 </layout>

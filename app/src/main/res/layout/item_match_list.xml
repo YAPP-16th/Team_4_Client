@@ -1,91 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/ml_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="matchList"
+            type="kr.yapp.teamplay.domain.entity.MatchList" />
+    </data>
 
-    <TextView
-        android:id="@+id/ml_teamname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ml_title" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ml_layout"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:paddingHorizontal="25dp">
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="12sp"
-        android:background="@color/colorWarmGrey"
-        android:layout_marginLeft="8sp"
-        app:layout_constraintStart_toEndOf="@+id/ml_teamname"
-        app:layout_constraintTop_toTopOf="@+id/ml_teamname"
-        app:layout_constraintBottom_toBottomOf="@+id/ml_teamname"/>
+        <TextView
+            android:id="@+id/ml_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{matchList.title}"
+            android:fontFamily="@font/sf_pro_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/ml_gametype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_marginLeft="16sp"
-        app:layout_constraintStart_toEndOf="@+id/ml_teamname"
-        app:layout_constraintTop_toTopOf="@+id/ml_teamname"
-        app:layout_constraintBottom_toBottomOf="@+id/ml_teamname" />
+        <TextView
+            android:id="@+id/ml_teamname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{matchList.team}"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ml_title" />
 
-    <TextView
-        android:id="@+id/ml_gameday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ml_teamname" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="12sp"
+            android:layout_marginLeft="8sp"
+            android:background="@color/colorWarmGrey"
+            app:layout_constraintBottom_toBottomOf="@+id/ml_teamname"
+            app:layout_constraintStart_toEndOf="@+id/ml_teamname"
+            app:layout_constraintTop_toTopOf="@+id/ml_teamname" />
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="12sp"
-        android:background="@color/colorWarmGrey"
-        android:layout_marginLeft="8sp"
-        app:layout_constraintStart_toEndOf="@+id/ml_gameday"
-        app:layout_constraintTop_toTopOf="@+id/ml_gameday"
-        app:layout_constraintBottom_toBottomOf="@+id/ml_gameday"/>
+        <TextView
+            android:id="@+id/ml_gametype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="@{matchList.gameType}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ml_teamname"
+            app:layout_constraintStart_toEndOf="@+id/ml_teamname"
+            app:layout_constraintTop_toTopOf="@+id/ml_teamname" />
 
-    <TextView
-        android:id="@+id/ml_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:layout_marginLeft="16sp"
-        app:layout_constraintStart_toEndOf="@+id/ml_gameday"
-        app:layout_constraintTop_toTopOf="@+id/ml_gameday"
-        app:layout_constraintBottom_toBottomOf="@+id/ml_gameday" />
+        <TextView
+            android:id="@+id/ml_gameday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{matchList.gameDay}"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ml_teamname" />
 
-    <ImageView
-        android:id="@+id/ml_ic_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_kakao" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="12sp"
+            android:layout_marginLeft="8dp"
+            android:background="@color/colorWarmGrey"
+            app:layout_constraintBottom_toBottomOf="@+id/ml_gameday"
+            app:layout_constraintStart_toEndOf="@+id/ml_gameday"
+            app:layout_constraintTop_toTopOf="@+id/ml_gameday" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/ml_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="@{matchList.location}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ml_gameday"
+            app:layout_constraintStart_toEndOf="@+id/ml_gameday"
+            app:layout_constraintTop_toTopOf="@+id/ml_gameday" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorVeryLightPink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- like button
+        <ImageView
+            android:id="@+id/ml_ic_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_kakao" />
+            -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

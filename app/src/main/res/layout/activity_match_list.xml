@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="매치리스트"
-            android:textSize="14sp"
+            android:textSize="14dp"
+            android:fontFamily="@font/sf_pro_bold"
             app:layout_constraintBottom_toBottomOf="@+id/match_list_ic_back"
             app:layout_constraintStart_toEndOf="@+id/match_list_ic_back"
             app:layout_constraintTop_toTopOf="@+id/match_list_ic_back" />
@@ -41,6 +42,8 @@
             android:text="매치등록"
             android:textColor="@color/colorRed"
             android:textSize="13sp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:onClick="@{() -> viewModel.clickRegisterButton()}"
             app:layout_constraintBottom_toBottomOf="@+id/match_list_ic_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/match_list_ic_back" />
@@ -129,6 +132,7 @@
             app:layout_constraintTop_toBottomOf="@+id/match_list_text_filter">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/match_list_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

@@ -52,7 +52,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
-
+        </activity>
+        <activity
+            android:name=".presentation.match_list.MatchListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
         </activity>
     </application>
 

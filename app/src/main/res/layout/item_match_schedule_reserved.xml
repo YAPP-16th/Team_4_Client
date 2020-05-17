@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="MatchList"
+            type="kr.yapp.teamplay.domain.entity.MatchList" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="15dp">
+
+        <TextView
+            android:id="@+id/schedule_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="123"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/schedule_item_gametype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="123"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/schedule_item_title" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="12dp"
+            android:layout_marginLeft="8dp"
+            android:background="@color/colorWarmGrey"
+            app:layout_constraintBottom_toBottomOf="@+id/schedule_item_gametype"
+            app:layout_constraintStart_toEndOf="@+id/schedule_item_gametype"
+            app:layout_constraintTop_toTopOf="@+id/schedule_item_gametype" />
+
+        <TextView
+            android:id="@+id/schedule_item_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="123"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/schedule_item_gametype"
+            app:layout_constraintStart_toEndOf="@+id/schedule_item_gametype"
+            app:layout_constraintTop_toTopOf="@+id/schedule_item_gametype" />
+
+        <TextView
+            android:id="@+id/schedule_item_gameday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="123"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/schedule_item_gametime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="123"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/schedule_item_gameday" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

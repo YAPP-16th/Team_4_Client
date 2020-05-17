@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="MatchList"
+            type="kr.yapp.teamplay.domain.entity.MatchList" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="15dp"
+    android:paddingHorizontal="25dp" >
+
+    <TextView
+        android:id="@+id/match_schedule_hg_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="14sp"
+        android:fontFamily="@font/sf_pro_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/match_schedule_hg_gametype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="12sp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/match_schedule_hg_title"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="12sp"
+        android:background="@color/colorWarmGrey"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/match_schedule_hg_gametype"
+        app:layout_constraintStart_toEndOf="@+id/match_schedule_hg_gametype"
+        app:layout_constraintTop_toTopOf="@+id/match_schedule_hg_gametype" />
+
+    <TextView
+        android:id="@+id/match_schedule_hg_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="12sp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/match_schedule_hg_gametype"
+        app:layout_constraintStart_toEndOf="@+id/match_schedule_hg_gametype"
+        app:layout_constraintTop_toTopOf="@+id/match_schedule_hg_gametype"/>
+
+    <TextView
+        android:id="@+id/match_schedule_hg_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="12dp"
+        android:textColor="@color/colorTeamCharacter6"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/match_schedule_hg_disagree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="12dp"
+        android:textColor="@color/colorBasketBallRed2"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/match_schedule_hg_agree"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/match_schedule_hg_wait_agree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="12dp"
+        android:textColor="@color/colorWarmGrey"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/match_schedule_hg_request_disagree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="12dp"
+        android:textColor="@color/colorBasketBallRed2"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
