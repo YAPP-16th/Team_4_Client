@@ -37,4 +37,15 @@
     <string name="myTeamSelectTeamDescription">당신을 기다리고 있는 팀들을 찾아보세요</string>
     <string name="myTeamSelectTeamCount">현재 258개의 팀이 팀플레이 중입니다</string>
 
+    <!--match detail page-->
+    <string name="detail_rule_content">일반 농구 규칙상으로는 경기 시간은 4개 쿼터(Quarter)로
+10분씩 갈라지며, 1-2쿼터 사이와 3-4쿼터 사이는 2분,  2-3쿼터
+사이(하프타임)에는 15분 쉰다.  중등부는 쿼터당 8분, 초등부는
+전후반 각 15분으로 플레이한다.
+
+* 팀플레이는 매치 중 또는 매치와 관련해 일어난 금전이나
+   안전을 비롯한 어떠한 문제에 대해서 책임이 없음을 알립니다</string>
+    <string name="detail_address_request">매치가 성사된 후 매치 호스트가 연락을 할 수 있는 연락처나
+카카오톡 아이디 등을 남겨주세요.</string>
+
 </resources>

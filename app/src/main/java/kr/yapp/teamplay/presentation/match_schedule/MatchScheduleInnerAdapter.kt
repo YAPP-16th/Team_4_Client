@@ -6,7 +6,7 @@ import kr.yapp.teamplay.databinding.ItemMatchScheduleHostGuestBinding
 import kr.yapp.teamplay.databinding.ItemMatchScheduleReservedBinding
 import kr.yapp.teamplay.databinding.ItemMatchScheduleSubtitleBinding
 
-class MatchScheduleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MatchScheduleInnerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -18,12 +18,6 @@ class MatchScheduleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    inner class MatchScheduleSubTitleViewHolder(
-        private val binding : ItemMatchScheduleSubtitleBinding
-    ) {
-
     }
 
     inner class MatchScheduleReservedViewHolder(

@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-            name="MatchList"
+            name="matchList"
             type="kr.yapp.teamplay.domain.entity.MatchList" />
     </data>
 

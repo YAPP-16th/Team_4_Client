@@ -1,5 +1,6 @@
 package kr.yapp.teamplay.presentation.match_list
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_match_list.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityMatchListBinding
 import kr.yapp.teamplay.domain.entity.MatchList
+import kr.yapp.teamplay.presentation.match_detail.MatchDetailActivity
 
 class MatchListActivity : AppCompatActivity() {
 
@@ -55,6 +57,8 @@ class MatchListActivity : AppCompatActivity() {
 
     private fun goToDetailList() {
         Toast.makeText(this, "디테일 화면으로 이동합니다.", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, MatchDetailActivity::class.java)
+        startActivity(intent)
     }
 
     private fun goToMatchRegister() {
