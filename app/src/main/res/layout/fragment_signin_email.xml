@@ -23,21 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--
-        <EditText
-            android:id="@+id/input_signin_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:text="@={viewModel.signinEmail}"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_signin_email"
-            app:layout_constraintVertical_bias="0.2"/>
--->
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_signin_email"
             android:layout_width="match_parent"
@@ -69,6 +54,22 @@
             android:layout_marginLeft="6dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_signin_email"/>
+
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/onboarding_round_button"
+            android:backgroundTint="@color/colorRed"
+            android:onClick="@{() -> viewModel.clickSignInEmailButton()}"
+            android:text="@string/next"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/sf_pro_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
