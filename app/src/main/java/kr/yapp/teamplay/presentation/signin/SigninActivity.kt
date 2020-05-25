@@ -30,7 +30,7 @@ class SigninActivity : AppCompatActivity() {
 
         setDataBinding()
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, SigninEmailFragment()).commit()
+            .add(R.id.fragment_container, SigninEmailFragment(signinViewModel)).commit()
         transStatusWhiteTextBar()
     }
 
@@ -55,7 +55,7 @@ class SigninActivity : AppCompatActivity() {
     fun goToSigninPassword() {
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
-            .replace(R.id.fragment_container, SigninPasswordFragment())
+            .replace(R.id.fragment_container, SigninPasswordFragment(signinViewModel))
             .addToBackStack(null).commit()
     }
 

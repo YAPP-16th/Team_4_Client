@@ -6,7 +6,7 @@
     <data>
         <variable
             name="matchList"
-            type="kr.yapp.teamplay.domain.entity.MatchList" />
+            type="kr.yapp.teamplay.data.match.MatchList" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,60 +30,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@{matchList.team}"
+            android:text="@{matchList.description1}"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ml_title" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="12sp"
-            android:layout_marginLeft="8sp"
-            android:background="@color/colorWarmGrey"
-            app:layout_constraintBottom_toBottomOf="@+id/ml_teamname"
-            app:layout_constraintStart_toEndOf="@+id/ml_teamname"
-            app:layout_constraintTop_toTopOf="@+id/ml_teamname" />
-
-        <TextView
-            android:id="@+id/ml_gametype"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="@{matchList.gameType}"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ml_teamname"
-            app:layout_constraintStart_toEndOf="@+id/ml_teamname"
-            app:layout_constraintTop_toTopOf="@+id/ml_teamname" />
 
         <TextView
             android:id="@+id/ml_gameday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{matchList.gameDay}"
+            android:text="@{matchList.description2}"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ml_teamname" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="12sp"
-            android:layout_marginLeft="8dp"
-            android:background="@color/colorWarmGrey"
-            app:layout_constraintBottom_toBottomOf="@+id/ml_gameday"
-            app:layout_constraintStart_toEndOf="@+id/ml_gameday"
-            app:layout_constraintTop_toTopOf="@+id/ml_gameday" />
-
-        <TextView
-            android:id="@+id/ml_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="@{matchList.location}"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ml_gameday"
-            app:layout_constraintStart_toEndOf="@+id/ml_gameday"
-            app:layout_constraintTop_toTopOf="@+id/ml_gameday" />
 
         <View
             android:layout_width="match_parent"
@@ -91,18 +51,6 @@
             android:background="@color/colorVeryLightPink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <!-- like button
-        <ImageView
-            android:id="@+id/ml_ic_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_kakao" />
-            -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

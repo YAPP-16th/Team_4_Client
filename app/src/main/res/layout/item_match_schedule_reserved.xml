@@ -6,7 +6,7 @@
 
         <variable
             name="MatchList"
-            type="kr.yapp.teamplay.domain.entity.MatchList" />
+            type="kr.yapp.teamplay.domain.entity.MatchInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

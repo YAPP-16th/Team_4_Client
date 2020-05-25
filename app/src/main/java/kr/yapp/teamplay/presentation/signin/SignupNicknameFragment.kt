@@ -13,14 +13,14 @@ import kotlinx.android.synthetic.main.fragment_signup_nickname.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSignupNicknameBinding
 
-class SignupNicknameFragment : Fragment() {
-    private val signupViewModel: SignupViewModel by lazy {
-        ViewModelProvider(this).get(SignupViewModel::class.java)
-    }
-
+class SignupNicknameFragment(signupViewModel: SignupViewModel) : Fragment() {
+    private val signupViewModel: SignupViewModel
     private lateinit var binding: FragmentSignupNicknameBinding
-
     private lateinit var mActivity: SignupActivity
+
+    init {
+        this.signupViewModel = signupViewModel
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

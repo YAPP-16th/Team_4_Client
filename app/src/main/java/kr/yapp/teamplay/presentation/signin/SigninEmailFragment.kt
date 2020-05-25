@@ -14,14 +14,14 @@ import kotlinx.android.synthetic.main.fragment_signin_email.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSigninEmailBinding
 
-class SigninEmailFragment : Fragment() {
-
-    private val signinViewModel : SigninViewModel by lazy {
-        ViewModelProvider(this).get(SigninViewModel::class.java)
-    }
+class SigninEmailFragment(signinViewModel: SigninViewModel) : Fragment() {
+    private val signinViewModel : SigninViewModel
     private lateinit var binding: FragmentSigninEmailBinding
-
     private lateinit var mActivity: SigninActivity
+
+    init {
+        this.signinViewModel = signinViewModel
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

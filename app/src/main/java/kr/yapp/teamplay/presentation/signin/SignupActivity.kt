@@ -3,6 +3,7 @@ package kr.yapp.teamplay.presentation.signin
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,7 +26,7 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setDataBinding()
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, SignupEmailFragment()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container, SignupEmailFragment(signupViewModel)).commit()
         transStatusWhiteTextBar()
     }
 
@@ -36,15 +37,17 @@ class SignupActivity : AppCompatActivity() {
     }
 
     fun goToSignupPassword() {
+        Log.d("MyTag",signupViewModel.signupEmail.value.toString())
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
-            .replace(R.id.fragment_container, SignupPasswordFragment()).addToBackStack(null).commit()
+            .replace(R.id.fragment_container, SignupPasswordFragment(signupViewModel)).addToBackStack(null).commit()
     }
 
     fun goToSignupNickname() {
+        Log.d("MyTag",signupViewModel.signupEmail.value.toString())
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(R.anim.fragment_close_enter, R.anim.fragment_open_exit)
-            .replace(R.id.fragment_container, SignupNicknameFragment()).addToBackStack(null).commit()
+            .replace(R.id.fragment_container, SignupNicknameFragment(signupViewModel)).addToBackStack(null).commit()
     }
 
     fun goToMain() {

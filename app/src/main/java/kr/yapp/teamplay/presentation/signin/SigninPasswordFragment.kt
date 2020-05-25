@@ -14,14 +14,14 @@ import kotlinx.android.synthetic.main.fragment_signin_password.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSigninPasswordBinding
 
-class SigninPasswordFragment : Fragment() {
+class SigninPasswordFragment(signinViewModel: SigninViewModel) : Fragment() {
+    private val signinViewModel: SigninViewModel
     private lateinit var binding: FragmentSigninPasswordBinding
-
-    private val signinViewModel: SigninViewModel by lazy {
-        ViewModelProvider(this).get(SigninViewModel::class.java)
-    }
-
     private lateinit var mActivity: SigninActivity
+
+    init {
+        this.signinViewModel = signinViewModel
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

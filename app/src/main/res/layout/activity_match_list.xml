@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="매치리스트"
+            android:text="@string/match_list_header"
             android:textSize="14dp"
             android:fontFamily="@font/sf_pro_bold"
             app:layout_constraintBottom_toBottomOf="@+id/match_list_ic_back"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="매치등록"
+            android:text="@string/match_list_submit"
             android:textColor="@color/colorRed"
             android:textSize="13sp"
             android:fontFamily="@font/sf_pro_bold"
@@ -49,55 +49,15 @@
             app:layout_constraintTop_toTopOf="@+id/match_list_ic_back" />
 
         <TextView
-            android:id="@+id/match_list_filter_day"
+            android:id="@+id/match_list_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="60dp"
-            android:text="TextView"
+            android:text="@{viewModel.matchFilter}"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="12sp"
-            android:background="@color/colorWarmGrey"
-            app:layout_constraintBottom_toBottomOf="@+id/match_list_filter_day"
-            app:layout_constraintEnd_toStartOf="@+id/filter_location"
-            app:layout_constraintStart_toEndOf="@+id/match_list_filter_day"
-            app:layout_constraintTop_toTopOf="@+id/match_list_filter_day" />
-
-        <TextView
-            android:id="@+id/filter_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12sp"
-            android:text="TextView"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/match_list_filter_day"
-            app:layout_constraintStart_toEndOf="@+id/match_list_filter_day"
-            app:layout_constraintTop_toTopOf="@+id/match_list_filter_day" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="12sp"
-            android:background="@color/colorWarmGrey"
-            app:layout_constraintBottom_toBottomOf="@+id/match_list_filter_day"
-            app:layout_constraintEnd_toStartOf="@+id/filter_game_type"
-            app:layout_constraintStart_toEndOf="@+id/filter_location"
-            app:layout_constraintTop_toTopOf="@+id/match_list_filter_day" />
-
-        <TextView
-            android:id="@+id/filter_game_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12sp"
-            android:text="TextView"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/filter_location"
-            app:layout_constraintStart_toEndOf="@+id/filter_location"
-            app:layout_constraintTop_toTopOf="@+id/filter_location" />
 
         <TextView
             android:id="@+id/match_list_text_filter"
@@ -108,9 +68,9 @@
             android:text="필터"
             android:textColor="@color/colorRed"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/match_list_filter_day"
+            app:layout_constraintBottom_toBottomOf="@+id/match_list_filter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/match_list_filter_day" />
+            app:layout_constraintTop_toTopOf="@+id/match_list_filter" />
 
         <ImageView
             android:id="@+id/match_list_ic_filter"
