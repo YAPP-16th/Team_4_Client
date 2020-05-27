@@ -61,4 +61,15 @@
     <string name="detail_address_request">매치가 성사된 후 매치 호스트가 연락을 할 수 있는 연락처나
 카카오톡 아이디 등을 남겨주세요.</string>
 
+    <!-- team_main -->
+    <string name="team_main_matching_list">매칭 리스트</string>
+    <string name="team_main_matching_schedule">매칭 스케줄</string>
+    <string name="team_main_team_feed_label">동호회 게시판</string>
+    <string name="team_main_description_format">%s 창설 | 현재 회원수 %s명</string>
+    <string name="item_notice_type_label_notice">Notice</string>
+    <string name="item_result_type_label_result">Result</string>
+    <string name="item_result_type_match_result">경기결과</string>
+    <string name="my_html">%s 과의 경기에서 \n 승리하셨습니다.</string>
+    <string name="team_main_feed_count_format">%s posts</string>
+
 </resources>

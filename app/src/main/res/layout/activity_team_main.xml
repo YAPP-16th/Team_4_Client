@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/bind"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.yapp.teamplay.presentation.teammain.TeamMainViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/team_main_shimmer_view_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.showShimmer? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_auto_start="true"
+            app:shimmer_duration="1000">
+
+            <include layout="@layout/shimmer_team_main" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{viewModel.showShimmer? View.GONE : View.VISIBLE}">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:descendantFocusability="blocksDescendants"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/team_main_bg_top"
+                    android:layout_width="0dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/bg_team_main_top"
+                    android:contentDescription="team main background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/team_main_iv_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:contentDescription="team main icon"
+                    android:src="@drawable/img_basketball"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/team_main_bg_top"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/team_main_tv_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/team_main_tv_top"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="@{viewModel.teamMainItem.clubInfo.tag}"
+                    android:textColor="#ffffff"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_iv_top"
+                    tools:text="상암동대표" />
+
+                <TextView
+                    android:id="@+id/team_main_tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sf_pro_bold"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_tv_tag"
+                    android:text="@{viewModel.teamMainItem.clubInfo.name}"
+                    android:textColor="#262626"
+                    android:textSize="26dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="상암동 농구클럽" />
+
+                <TextView
+                    android:id="@+id/team_main_tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/sf_pro_regular"
+                    android:gravity="center_horizontal"
+                    android:text="@{viewModel.teamMainItem.clubInfo.location}"
+                    android:textColor="@color/brownGrey"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_tv_name"
+                    tools:text="서울시 마포구 상암동 소재" />
+
+                <TextView
+                    android:id="@+id/team_main_tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_regular"
+                    android:gravity="center_horizontal"
+                    android:text="@{@string/team_main_description_format(viewModel.teamMainItem.clubInfo.createDate, viewModel.teamMainItem.clubInfo.memberCount)}"
+                    android:textColor="@color/brownGrey"
+                    android:textSize="13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/team_main_tv_address"
+                    tools:text="2017.02.11 창설  |  현재회원수 52명" />
+
+                <Button
+                    android:id="@+id/team_main_btn_left"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/team_main_btn_left"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:paddingStart="35dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/team_main_matching_schedule"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="@id/team_main_btn_right"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_tv_description"
+                    tools:text="매칭 스케줄" />
+
+                <Button
+                    android:id="@+id/team_main_btn_right"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/team_main_btn_right"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:paddingStart="35dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/team_main_matching_list"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/team_main_btn_left"
+                    app:layout_constraintTop_toTopOf="@id/team_main_btn_left"
+                    tools:text="매칭 리스트" />
+
+
+                <TextView
+                    android:id="@+id/team_main_tv_feed_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="@string/team_main_team_feed_label"
+                    android:textColor="#262626"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_btn_left" />
+
+                <TextView
+                    android:id="@+id/team_main_tv_feed_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{@string/team_main_feed_count_format(viewModel.teamMainItem.feedCount)}"
+                    android:textColor="@color/brownGrey"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="@id/team_main_tv_feed_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/team_main_tv_feed_label"
+                    tools:text="214 posts" />
+
+                <View
+                    android:id="@+id/team_main_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="#ff4d41"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_tv_feed_label" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/team_main_recycler_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/team_main_divider"
+                    bind:item="@{viewModel.teamMainItem.feedItemResponses}" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

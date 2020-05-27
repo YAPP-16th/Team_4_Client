@@ -39,4 +39,6 @@
     <color name="colorGoogle">#da4835</color>
     <color name="colorRed">#ff4d41</color>
 
+    <color name="very_light_pink">#f1f1f1</color>
+    <color name="shimmer_color">#dddddd</color>
 </resources>
