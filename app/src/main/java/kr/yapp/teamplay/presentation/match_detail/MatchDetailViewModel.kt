@@ -6,5 +6,4 @@ import kr.yapp.teamplay.domain.entity.MatchInfo
 
 class MatchDetailViewModel : ViewModel() {
     val matchInfo : MutableLiveData<MatchInfo> = MutableLiveData()
-
 }

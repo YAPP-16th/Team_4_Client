@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/team_main_bg_top_sm"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_iv_top_sm"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/img_basketball"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/team_main_bg_top_sm" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_tv_tag_sm"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="12dp"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_main_iv_top_sm"
+        tools:text="상암동대표" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_tv_name_sm"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sf_pro_bold"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_main_tv_tag_sm"
+        tools:text="상암동 농구클럽" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_tv_address_sm"
+        android:layout_width="125dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/brownGrey"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_main_tv_name_sm"
+        tools:text="서울시 마포구 상암동 소재" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_tv_description_sm"
+        android:layout_width="175dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/sf_pro_regular"
+        android:gravity="center_horizontal"
+        android:textSize="13dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team_main_tv_address_sm"
+        tools:text="2017.02.11 창설  |  현재회원수 52명" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_btn_left_sm"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/sf_pro_bold"
+        android:paddingStart="35dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="35dp"
+        android:paddingBottom="10dp"
+        android:text="@string/team_main_matching_schedule"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toStartOf="@id/team_main_btn_right_sm"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_main_tv_description_sm"
+        tools:text="매칭 스케줄" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_btn_right_sm"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/team_main_btn_right"
+        android:paddingStart="35dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="35dp"
+        android:paddingBottom="10dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/team_main_btn_left_sm"
+        app:layout_constraintTop_toTopOf="@id/team_main_btn_left_sm"
+        tools:text="매칭 리스트" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_tv_feed_label_sm"
+        android:layout_width="85dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/sf_pro_bold"
+        android:text="@string/team_main_team_feed_label"
+        android:textColor="#262626"
+        android:textSize="16dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_main_btn_left_sm" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_tv_feed_count_sm"
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/brownGrey"
+        android:textSize="12dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/team_main_tv_feed_label_sm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/team_main_tv_feed_label_sm"
+        tools:text="214 posts" />
+
+    <View
+        android:id="@+id/team_main_divider_sm"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="#ff4d41"
+        app:layout_constraintTop_toBottomOf="@id/team_main_tv_feed_label_sm" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/team_main_recycler_view_sm"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        app:cardBackgroundColor="@color/shimmer_color"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_main_divider_sm" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,8 @@ class SignupPasswordFragment(signupViewModel: SignupViewModel) : Fragment() {
         this.signupViewModel = signupViewModel
     }
 
+    private lateinit var mActivity: SignupActivity
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

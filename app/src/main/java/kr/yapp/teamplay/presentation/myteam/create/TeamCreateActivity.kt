@@ -3,6 +3,7 @@
  */
 package kr.yapp.teamplay.presentation.myteam.create
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,8 +14,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityTeamCreateBinding
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 
 class TeamCreateActivity : AppCompatActivity() {
+
+    companion object {
+        fun start(context: Context) {
+            context.startActivity(
+                context.intentFor<TeamCreateActivity>().singleTop()
+            )
+        }
+    }
 
     private lateinit var binding: ActivityTeamCreateBinding
 

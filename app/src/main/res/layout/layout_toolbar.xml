@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorWhite"
+    app:navigationIcon="@drawable/ic_arrow_left_black">
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:fontFamily="@font/sf_pro_bold"
+        android:textColor="@color/colorBoldBlack"
+        android:textSize="16dp"
+        android:singleLine="true"
+        android:maxLength="12"
+        tools:text="툴바 타이틀" />
+
+</androidx.appcompat.widget.Toolbar>

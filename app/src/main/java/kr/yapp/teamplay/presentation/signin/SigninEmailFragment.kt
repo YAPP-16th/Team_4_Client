@@ -23,6 +23,8 @@ class SigninEmailFragment(signinViewModel: SigninViewModel) : Fragment() {
         this.signinViewModel = signinViewModel
     }
 
+    private lateinit var mActivity: SigninActivity
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

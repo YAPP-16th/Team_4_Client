@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="resultItem"
+            type="kr.yapp.teamplay.domain.entity.teammain.ResultItem" />
+
+        <variable
+            name="resultContent"
+            type="android.text.Spanned" />
+
+        <variable
+            name="result"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/item_result_type_label_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_notice_type_btn_label"
+            android:fontFamily="@font/sf_pro_regular"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text="@string/item_result_type_label_result"
+            android:textColor="#fe7346"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_result_type_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="@string/item_result_type_match_result"
+            android:textColor="#262626"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/item_result_type_label_tv"
+            app:layout_constraintStart_toEndOf="@id/item_result_type_label_tv"
+            app:layout_constraintTop_toTopOf="@id/item_result_type_label_tv" />
+
+        <TextView
+            android:id="@+id/item_result_type_create_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{resultItem.createTime}"
+            android:textColor="#828282"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@id/item_result_type_label_tv"
+            app:layout_constraintStart_toEndOf="@id/item_result_type_title_tv"
+            app:layout_constraintTop_toTopOf="@id/item_result_type_label_tv"
+            tools:text="2020.3.15.   16:00" />
+
+        <ImageView
+            android:id="@+id/item_result_type_match_result_bg_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_item_result_type"
+            android:contentDescription="background of macth result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_result_type_label_tv"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/item_result_type_match_result_iv"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:gravity="center"
+            android:text="@{result}"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp"
+            tools:text="Win or Lose"
+            app:layout_constraintEnd_toEndOf="@id/item_result_type_match_result_bg_iv"
+            app:layout_constraintStart_toStartOf="@id/item_result_type_match_result_bg_iv"
+            app:layout_constraintTop_toTopOf="@id/item_result_type_match_result_bg_iv" />
+
+        <TextView
+            android:id="@+id/item_result_type_match_result_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:maxLines="2"
+            android:text="@{resultContent}"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@id/item_result_type_match_result_bg_iv"
+            app:layout_constraintStart_toStartOf="@id/item_result_type_match_result_bg_iv"
+            app:layout_constraintTop_toBottomOf="@id/item_result_type_match_result_iv"
+            tools:text="남양주 팀 열정과의 경기에서 \n 승리하셨습니다." />
+
+        <TextView
+            android:id="@+id/item_result_type_comment_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center_horizontal"
+            android:text="Comment 1"
+            android:textColor="#828282"
+            android:textSize="11dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_result_type_match_result_bg_iv"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/item_result_type_check_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:gravity="center_horizontal"
+            android:text="Check 21"
+            android:textColor="#ff4d41"
+            android:textSize="11dp"
+            app:layout_constraintStart_toEndOf="@id/item_result_type_comment_count_tv"
+            app:layout_constraintTop_toTopOf="@id/item_result_type_comment_count_tv"
+            tools:ignore="HardcodedText" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

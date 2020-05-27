@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="noticeItem"
+            type="kr.yapp.teamplay.domain.entity.teammain.NoticeItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/item_notice_type_label_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_result_type_btn_label"
+            android:fontFamily="@font/sf_pro_regular"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:text="@string/item_notice_type_label_notice"
+            android:textColor="#15ce79"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_notice_type_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="@{noticeItem.title}"
+            android:textColor="#262626"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/item_notice_type_label_tv"
+            app:layout_constraintStart_toEndOf="@id/item_notice_type_label_tv"
+            app:layout_constraintTop_toTopOf="@id/item_notice_type_label_tv"
+            tools:text="3월 2주 공지입니다." />
+
+        <TextView
+            android:id="@+id/item_notice_type_create_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{noticeItem.createTime}"
+            android:textColor="@color/brownGrey"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@id/item_notice_type_label_tv"
+            app:layout_constraintStart_toEndOf="@id/item_notice_type_title_tv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2020.3.9.  16:00" />
+
+        <TextView
+            android:id="@+id/item_notice_type_content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="8.5sp"
+            android:text="@{noticeItem.content}"
+            android:textColor="#262626"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_notice_type_label_tv"
+            tools:text="이번 주 토 3월 15일 오후 4시부터 7시  남양주 농구 동호회
+팀 열정과 3대3 반코트 경기가 있습니다. 3대3 반코트 게임을
+진행할 예정입니다. 게임 후 식사 및 간단하게 한 잔 있어요!" />
+
+        <TextView
+            android:id="@+id/item_notice_type_comment_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text="Comment 1"
+            android:textColor="#828282"
+            android:textSize="11dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_notice_type_content_tv"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/item_notice_type_check_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:gravity="center_horizontal"
+            android:text="Check 21"
+            android:textColor="#ff4d41"
+            android:textSize="11dp"
+            app:layout_constraintStart_toEndOf="@id/item_notice_type_comment_count_tv"
+            app:layout_constraintTop_toTopOf="@id/item_notice_type_comment_count_tv"
+            tools:ignore="HardcodedText" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

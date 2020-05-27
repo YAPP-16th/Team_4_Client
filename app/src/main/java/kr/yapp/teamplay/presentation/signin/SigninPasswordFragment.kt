@@ -29,6 +29,12 @@ class SigninPasswordFragment(signinViewModel: SigninViewModel) : Fragment() {
 
     private lateinit var mActivity: SigninActivity
 
+    private val signinViewModel: SigninViewModel by lazy {
+        ViewModelProvider(this).get(SigninViewModel::class.java)
+    }
+
+    private lateinit var mActivity: SigninActivity
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
