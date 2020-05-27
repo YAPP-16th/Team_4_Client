@@ -1,6 +1,5 @@
 package kr.yapp.teamplay.presentation.signin
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_signin_email.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSigninEmailBinding
@@ -22,8 +20,6 @@ class SigninEmailFragment(signinViewModel: SigninViewModel) : Fragment() {
     init {
         this.signinViewModel = signinViewModel
     }
-
-    private lateinit var mActivity: SigninActivity
 
     override fun onCreateView(
         inflater: LayoutInflater,
