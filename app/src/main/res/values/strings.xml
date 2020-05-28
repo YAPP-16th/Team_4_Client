@@ -24,9 +24,9 @@
     <string name="signup_nickname">이제 멋진 닉네임만 정하면 끝이에요!</string>
     <string name="next">다음</string>
     <string name="signin_error_email">올바른 이메일을 입력해주세요.</string>
-    <string name="signin_error_password">올바른 패스워드를 입력해주세요.</string>
+    <string name="signin_error_password">비밀번호가 일치하지 않습니다.</string>
     <string name="signup_error_email">올바른 이메일을 입력해주세요.</string>
-    <string name="signup_error_password">올바른 패스워드를 입력해주세요.</string>
+    <string name="signup_error_password">올바른 비밀번호를 입력해주세요.</string>
     <string name="signup_error_nickname">올바른 닉네임을 입력해주세요.</string>
 
     <string name="myTeamUserNameHint">안녕하세요,</string>

@@ -12,8 +12,6 @@ import kr.yapp.teamplay.domain.usecase.EmailCheckUsecase
 import kr.yapp.teamplay.domain.usecase.SigninUsecase
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 import kr.yapp.teamplay.presentation.util.sha256
-import okhttp3.ResponseBody
-import retrofit2.HttpException
 
 class SigninViewModel(
     private val signinUsecase: SigninUsecase =
@@ -45,7 +43,7 @@ class SigninViewModel(
     }
 
     // check that an email is registered or not
-    fun checkAlreadyUser(){
+    fun checkRegisteredUser(){
         val emailRegExp = "^[a-zA-Z0-9._%^-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$".toRegex()
         val matchResult = emailRegExp.matches(signinEmail.value.toString())
 
@@ -68,7 +66,7 @@ class SigninViewModel(
         }
     }
 
-    fun checkEmailPassword() {
+    fun submitEmailPassword() {
         val passwordRegExp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[0-9]).{8,20}$".toRegex()
         val matchResult = passwordRegExp.matches(signinPassword.value.toString())
 
@@ -80,8 +78,7 @@ class SigninViewModel(
                 .subscribe({
                     signInSuccess.call()
                 }, {
-                    val body: ResponseBody? = (it as HttpException).response()?.errorBody()
-                    Log.d("MyTag", it.localizedMessage!!)
+                    signInPasswordError.call()
                 })
                 .addTo(compositeDisposable)
         } else {

@@ -1,5 +1,6 @@
 package kr.yapp.teamplay.presentation.signin
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -16,8 +17,19 @@ import kotlinx.android.synthetic.main.fragment_signin_password.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivitySigninBinding
 import kr.yapp.teamplay.presentation.myteam.MyTeamSelectActivity
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
+import org.jetbrains.anko.startActivity
 
 class SigninActivity : AppCompatActivity() {
+
+    companion object {
+        fun start(context : Context) {
+            context.startActivity(
+                context.intentFor<SigninActivity>().singleTop()
+            )
+        }
+    }
 
     private val signinViewModel: SigninViewModel by lazy {
         ViewModelProvider(this).get(SigninViewModel::class.java)

@@ -44,7 +44,7 @@ class SigninPasswordFragment(signinViewModel: SigninViewModel) : Fragment() {
 
     private fun setLiveDataObserver() {
         signinViewModel.signInPasswordClick.observe(viewLifecycleOwner, Observer {
-            signinViewModel.checkEmailPassword()
+            signinViewModel.submitEmailPassword()
         })
 
         signinViewModel.signInPasswordError.observe(viewLifecycleOwner, Observer {

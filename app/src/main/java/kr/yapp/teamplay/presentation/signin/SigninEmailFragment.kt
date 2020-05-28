@@ -45,7 +45,7 @@ class SigninEmailFragment(signinViewModel: SigninViewModel) : Fragment() {
     private fun setLiveDataObserver() {
         signinViewModel.signInEmailClick.observe(viewLifecycleOwner, Observer {
             signinViewModel.setSigninEmail(et_signin_email.text.toString())
-            signinViewModel.checkAlreadyUser()
+            signinViewModel.checkRegisteredUser()
         })
 
         signinViewModel.signInEmailError.observe(viewLifecycleOwner, Observer {
