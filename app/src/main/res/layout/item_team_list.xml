@@ -5,15 +5,16 @@
 
     <data>
         <variable
-            name="team"
-            type="kr.yapp.teamplay.domain.entity.ClubListInfo" />
+            name="item"
+            type="kr.yapp.teamplay.presentation.search.TeamListAdapter.TeamListViewHolder.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
         android:paddingTop="16dp"
-        android:background="@color/colorWhite">
+        android:background="@color/colorWhite"
+        android:onClick="@{() -> item.onTeamClick.invoke()}">
 
         <TextView
             android:id="@+id/team_title"
@@ -23,7 +24,7 @@
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/sf_pro_bold"
             android:includeFontPadding="false"
-            android:text="@{team.name}"
+            android:text="@{item.team.name}"
             android:textSize="18dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/team_address_and_count"
@@ -38,7 +39,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="16dp"
-            android:text="@{@string/item_team_list_address_and_count(team.location, team.memberCount)}"
+            android:text="@{@string/item_team_list_address_and_count(item.team.location, item.team.memberCount)}"
             android:textSize="14dp"
             app:layout_constraintTop_toBottomOf="@id/team_title"
             app:layout_constraintBottom_toBottomOf="parent"
