@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="character"
+            type="kr.yapp.teamplay.domain.entity.TeamCharacter" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorBasketBallRed2"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="6dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="14dp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/sf_pro_bold"
+            android:layout_gravity="center"
+            tools:text="3대3"/>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

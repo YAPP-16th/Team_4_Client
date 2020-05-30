@@ -72,8 +72,12 @@
     <string name="my_html">%s 과의 경기에서 \n 승리하셨습니다.</string>
     <string name="team_main_feed_count_format">%s posts</string>
 
-    <!-- TeamSearch -->
-    <string name="team_search_filter_text">필터</string>
+    <!-- TeamSearchFilter -->
+    <string name="team_search_filter">검색하기</string>
+    <string name="team_search_filter_condition">검색조건</string>
+    <string name="team_search_filter_clear">초기화</string>
+    <string name="team_search_filter_region">활동지역</string>
+    <string name="team_search_filter_character">팀성격</string>
 
     <!-- String format -->
     <string name="item_team_list_header_count">조건에 맞는 팀이 %d개 있어요</string>

@@ -6,9 +6,7 @@ import kr.yapp.teamplay.domain.repository.MatchRepository
 
 class MatchRepositoryImpl(
     private val matchService: MatchService =
-        RetrofitManager.getRetrofit().create(
-            MatchService::class.java
-        )
+        RetrofitManager.create(MatchService::class.java)
 ) : MatchRepository {
     override fun getMatchList(currentPage : Int) : Single<MatchListResponse>{
         return matchService.getMatchList(

@@ -60,7 +60,7 @@ class TeamListAdapter(
         notifyDataSetChanged()
     }
 
-    private class TeamListHeaderViewHolder(
+    class TeamListHeaderViewHolder(
         private val binding: ItemTeamListHeaderBinding
     ) : RecyclerView.ViewHolder(binding.root),
         Bindable<TeamListHeaderViewHolder.Item> {
@@ -75,12 +75,12 @@ class TeamListAdapter(
         }
     }
 
-    private class TeamListViewHolder (
+    class TeamListViewHolder (
         private val binding: ItemTeamListBinding
     ) : RecyclerView.ViewHolder(binding.root),
         Bindable<TeamListViewHolder.Item> {
 
-        data class Item(
+        class Item(
             val team: ClubListInfo,
             val onTeamClick: () -> Unit
         ) : BindableData(ViewType.LIST.ordinal)

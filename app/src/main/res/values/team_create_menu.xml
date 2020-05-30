@@ -103,4 +103,24 @@
         <item>30</item>
     </string-array>
 
+    <string-array name="region_si">
+        <item>서울시</item>
+        <item>경기도</item>
+        <item>인천광역시</item>
+        <item>대전광역시</item>
+        <item>대구광역시</item>
+        <item>부산광역시</item>
+        <item>울산광역시</item>
+    </string-array>
+
+    <string-array name="region_gu">
+        <item>영등포구</item>
+        <item>강남구</item>
+        <item>마포구</item>
+    </string-array>
+
+    <string-array name="region_dong">
+        <item>양평동</item>
+    </string-array>
+
 </resources>

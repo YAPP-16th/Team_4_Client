@@ -15,9 +15,12 @@ import java.util.concurrent.TimeUnit
 object RetrofitManager {
 
     private const val BASE_URL = "https://api.fonnie.xyz"
-    private const val CONNECT_TIMEOUT = 10L
-    private const val WRITE_TIMEOUT = 10L
-    private const val READ_TIMEOUT = 10L
+    private const val CONNECT_TIMEOUT = 15L
+    private const val WRITE_TIMEOUT = 15L
+    private const val READ_TIMEOUT = 15L
+
+    fun <T> create(service: Class<T>): T =
+        getRetrofit().create(service)
 
     fun getRetrofit() : Retrofit =
         Retrofit.Builder()
