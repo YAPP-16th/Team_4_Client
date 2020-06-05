@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import kotlinx.android.synthetic.main.activity_splash.*
 import kr.yapp.teamplay.R
+import kr.yapp.teamplay.data.SharedPreferenceManager
 import kr.yapp.teamplay.databinding.ActivitySplashBinding
 import kr.yapp.teamplay.presentation.signin.SigninActivity
 
@@ -17,6 +18,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
+        SharedPreferenceManager.init(this)
         startSplashAnimation()
     }
 

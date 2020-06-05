@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_match_list.*
 import kr.yapp.teamplay.R
+import kr.yapp.teamplay.data.SharedPreferenceManager
 import kr.yapp.teamplay.databinding.ActivityMatchListBinding
+import kr.yapp.teamplay.domain.entity.ConstValue
 import kr.yapp.teamplay.domain.entity.matchlist.Search
 import kr.yapp.teamplay.presentation.match_detail.MatchDetailActivity
 

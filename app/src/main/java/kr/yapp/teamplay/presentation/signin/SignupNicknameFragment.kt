@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_signup_nickname.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSignupNicknameBinding
@@ -53,7 +52,7 @@ class SignupNicknameFragment(signupViewModel: SignupViewModel) : Fragment() {
             setErrorSignupNickname()
         })
 
-        signupViewModel.signUpNicknameFinish.observe(viewLifecycleOwner, Observer {
+        signupViewModel.signUpSuccessFinish.observe(viewLifecycleOwner, Observer {
             mActivity.goToMain()
         })
     }

@@ -1,29 +1,27 @@
 package kr.yapp.teamplay.presentation.signin
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
+import kr.yapp.teamplay.data.SharedPreferenceManager
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
+import kr.yapp.teamplay.domain.entity.ConstValue
 import kr.yapp.teamplay.domain.usecase.SignupUsecase
 import kr.yapp.teamplay.presentation.BaseViewModel
-import kr.yapp.teamplay.presentation.util.HashingPassword
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 import kr.yapp.teamplay.presentation.util.sha256
-import org.jetbrains.anko.getStackTraceString
 
 class SignupViewModel(
     private val signupUsecase : SignupUsecase =
         SignupUsecase(AuthRepositoryImpl())
 ) : BaseViewModel() {
+
     val signUpEmailClick : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpPasswordClick : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpNicknameClick : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpEmailFinish : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpPasswordFinish : SingleLiveEvent<Void> = SingleLiveEvent()
-    val signUpNicknameFinish : SingleLiveEvent<Void> = SingleLiveEvent()
+    val signUpSuccessFinish : SingleLiveEvent<Void> = SingleLiveEvent()
 
     val signUpEmailError : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpPasswordError : SingleLiveEvent<Void> = SingleLiveEvent()
@@ -84,7 +82,13 @@ class SignupViewModel(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    signUpNicknameFinish.call()
+                    signUpSuccessFinish.call()
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_USER_ID, it.userInfo.id)
                 }, { e ->
                     if (e.localizedMessage == "email is already registered") {
                         alreadyRegisteredEmail.call()

@@ -7,7 +7,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
+import kr.yapp.teamplay.data.SharedPreferenceManager
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
+import kr.yapp.teamplay.domain.entity.ConstValue
 import kr.yapp.teamplay.domain.usecase.EmailCheckUsecase
 import kr.yapp.teamplay.domain.usecase.SigninUsecase
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
@@ -77,6 +79,12 @@ class SigninViewModel(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     signInSuccess.call()
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_USER_ID, it.userInfo.id)
                 }, {
                     signInPasswordError.call()
                 })
