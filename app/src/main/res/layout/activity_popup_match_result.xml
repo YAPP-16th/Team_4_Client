@@ -52,21 +52,29 @@
             tools:text="상암동 농구클럽"
             android:text="상암동 농구클럽" />
 
-
-        <TextView
-            android:id="@+id/popup_match_result_result_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/popup_match_result_result_iv_win"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/sf_pro_bold"
-            android:gravity="center"
-            android:textColor="#fc5851"
-            android:textSize="60dp"
+            android:src="@drawable/ic_win"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/popup_match_result_name_tv"
-            tools:text="WIN"
-            android:text="WIN"/>
+            app:layout_constraintTop_toBottomOf="@id/popup_match_result_name_tv"/>
+
+        <ImageView
+            android:id="@+id/item_result_type_match_result_iv_lose"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/lose"
+            android:tint="@color/colorBoldBlack"
+            android:scaleType="centerCrop"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popup_match_result_name_tv"/>
 
         <TextView
             android:id="@+id/popup_match_result_description"
@@ -80,7 +88,7 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/popup_match_result_result_iv"
+            app:layout_constraintTop_toBottomOf="@id/popup_match_result_result_iv_win"
             android:text="남양주 팀 열정과의 경기에서 \n 승리하셨습니다."
             tools:text="남양주 팀 열정과의 경기에서 \n 승리하셨습니다." />
 

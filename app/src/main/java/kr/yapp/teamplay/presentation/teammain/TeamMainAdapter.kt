@@ -3,6 +3,7 @@ package kr.yapp.teamplay.presentation.teammain
 import android.os.Build
 import android.text.Html
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -74,6 +75,8 @@ class TeamMainAdapter(
             binding.resultItem = resultItem
             if (binding.resultItem!!.isWin) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    binding.itemResultTypeMatchResultIvWin.visibility = View.VISIBLE
+                    binding.itemResultTypeMatchResultIvLose.visibility = View.INVISIBLE
                     binding.resultContent = Html.fromHtml(
                         String.format(
                             "<b>%s</b>과의 경기에서 승리하셨습니다.",
@@ -81,9 +84,11 @@ class TeamMainAdapter(
                         ), Html.FROM_HTML_MODE_COMPACT
                     )
                 }
-                binding.result = "WIN"
+                //binding.result = "WIN"
             } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    binding.itemResultTypeMatchResultIvLose.visibility = View.VISIBLE
+                    binding.itemResultTypeMatchResultIvWin.visibility = View.INVISIBLE
                     binding.resultContent = Html.fromHtml(
                         String.format(
                             "<b>%s</b>과의 경기에서 패배하셨습니다.",
@@ -91,7 +96,7 @@ class TeamMainAdapter(
                         ), Html.FROM_HTML_MODE_COMPACT
                     )
                 }
-                binding.result = "LOSE"
+                //binding.result = "LOSE"
             }
             binding.root.setOnClickListener { onClickResult(resultItem?.isWin, resultItem?.teamName) }
         } // end of bindTo()

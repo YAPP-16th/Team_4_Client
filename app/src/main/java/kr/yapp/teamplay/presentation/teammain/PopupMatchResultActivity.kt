@@ -2,6 +2,7 @@ package kr.yapp.teamplay.presentation.teammain
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -30,10 +31,12 @@ class PopupMatchResultActivity : AppCompatActivity() {
     private fun setUI() {
         binding.popupMatchResultNameTv.setText(teamName)
         if (isWin) {
-            binding.popupMatchResultResultIv.setText("WIN")
+            binding.popupMatchResultResultIvWin.visibility = View.VISIBLE
+            binding.itemResultTypeMatchResultIvLose.visibility = View.INVISIBLE
             binding.popupMatchResultDescription.setText(String.format("%s 과의 경기에서 승리하셨습니다.", teamName))
         } else {
-            binding.popupMatchResultResultIv.setText("LOSE")
+            binding.itemResultTypeMatchResultIvLose.visibility = View.VISIBLE
+            binding.popupMatchResultResultIvWin.visibility = View.INVISIBLE
             binding.popupMatchResultDescription.setText(String.format("%s 과의 경기에서 패배하셨습니다.", teamName))
         }
     }

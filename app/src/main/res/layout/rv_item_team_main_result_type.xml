@@ -79,20 +79,28 @@
             app:layout_constraintTop_toBottomOf="@id/item_result_type_label_tv"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/item_result_type_match_result_iv"
+        <ImageView
+            android:id="@+id/item_result_type_match_result_iv_win"
             android:layout_width="110dp"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/sf_pro_bold"
-            android:gravity="center"
-            android:text="@{result}"
-            android:textColor="@color/colorWhite"
-            android:textSize="30dp"
-            tools:text="Win"
+            android:src="@drawable/ic_win"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@id/item_result_type_match_result_bg_iv"
             app:layout_constraintStart_toStartOf="@id/item_result_type_match_result_bg_iv"
-            app:layout_constraintTop_toTopOf="@id/item_result_type_match_result_bg_iv" />
+            app:layout_constraintTop_toTopOf="@id/item_result_type_match_result_bg_iv"/>
+
+        <ImageView
+            android:id="@+id/item_result_type_match_result_iv_lose"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/lose"
+            android:scaleType="centerCrop"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/item_result_type_match_result_bg_iv"
+            app:layout_constraintStart_toStartOf="@id/item_result_type_match_result_bg_iv"
+            app:layout_constraintTop_toTopOf="@id/item_result_type_match_result_bg_iv"/>
 
         <TextView
             android:id="@+id/item_result_type_match_result_content"
@@ -107,36 +115,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@id/item_result_type_match_result_bg_iv"
             app:layout_constraintStart_toStartOf="@id/item_result_type_match_result_bg_iv"
-            app:layout_constraintTop_toBottomOf="@id/item_result_type_match_result_iv"
+            app:layout_constraintTop_toBottomOf="@id/item_result_type_match_result_iv_win"
             tools:text="남양주 팀 열정과의 경기에서 \n 승리하셨습니다." />
-
-        <TextView
-            android:id="@+id/item_result_type_comment_count_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center_horizontal"
-            android:text="Comment 1"
-            android:textColor="#828282"
-            android:textSize="11dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_result_type_match_result_bg_iv"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/item_result_type_check_count_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:gravity="center_horizontal"
-            android:text="Check 21"
-            android:textColor="#ff4d41"
-            android:textSize="11dp"
-            app:layout_constraintStart_toEndOf="@id/item_result_type_comment_count_tv"
-            app:layout_constraintTop_toTopOf="@id/item_result_type_comment_count_tv"
-            tools:ignore="HardcodedText" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
