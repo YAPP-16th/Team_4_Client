@@ -4,15 +4,21 @@
 package kr.yapp.teamplay.presentation.search.join
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityTeamJoinBinding
+import kr.yapp.teamplay.util.Constant
+import kr.yapp.teamplay.util.dpToPixel
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
@@ -65,7 +71,19 @@ class TeamJoinActivity : AppCompatActivity() {
                     binding.teamJoinQuestions.apply {
                         layoutManager = LinearLayoutManager(this@TeamJoinActivity)
                         itemAnimator = DefaultItemAnimator()
-                        adapter = TeamJoinQuestionAdapter(state.questions)
+                        adapter = TeamJoinQuestionAdapter(Constant.defaultQuestions)
+                        addItemDecoration(object: RecyclerView.ItemDecoration() {
+                            override fun getItemOffsets(
+                                outRect: Rect,
+                                view: View,
+                                parent: RecyclerView,
+                                state: RecyclerView.State
+                            ) {
+                                if(getChildAdapterPosition(view) != 0) {
+                                    outRect.top = 16.dpToPixel()
+                                }
+                            }
+                        })
                     }
                 }
                 is TeamJoinUiState.Error -> {
