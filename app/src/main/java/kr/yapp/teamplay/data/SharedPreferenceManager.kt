@@ -5,6 +5,10 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import kr.yapp.teamplay.domain.entity.ConstValue
 
+/**
+ * legacy SharedPreference Class
+ */
+
 object SharedPreferenceManager {
     private lateinit var pref : SharedPreferences
     fun init(context : Context) {

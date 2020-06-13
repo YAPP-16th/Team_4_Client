@@ -3,6 +3,7 @@ package kr.yapp.teamplay.presentation.signin
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kr.yapp.teamplay.TeamPlayApplication
 import kr.yapp.teamplay.data.SharedPreferenceManager
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
 import kr.yapp.teamplay.domain.entity.ConstValue
@@ -10,6 +11,7 @@ import kr.yapp.teamplay.domain.usecase.SignupUsecase
 import kr.yapp.teamplay.presentation.BaseViewModel
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 import kr.yapp.teamplay.presentation.util.sha256
+import kr.yapp.teamplay.util.PreferenceManager
 
 class SignupViewModel(
     private val signupUsecase : SignupUsecase =
@@ -82,12 +84,15 @@ class SignupViewModel(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     signUpSuccessFinish.call()
-                    SharedPreferenceManager.setPref(
-                        ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
-                    SharedPreferenceManager.setPref(
-                        ConstValue.CONST_USER_ID, it.userInfo.id)
-                    SharedPreferenceManager.setPref(
-                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
+                    PreferenceManager.setTokenKey(TeamPlayApplication.appContext, it.accessToken.token)
+                    PreferenceManager.setRefreshTokenKey(TeamPlayApplication.appContext, it.refreshToken)
+                    PreferenceManager.setUserId(TeamPlayApplication.appContext, it.userInfo.id.toString())
+//                    SharedPreferenceManager.setPref(
+//                        ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
+//                    SharedPreferenceManager.setPref(
+//                        ConstValue.CONST_USER_ID, it.userInfo.id)
+//                    SharedPreferenceManager.setPref(
+//                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
                 }, { e ->
                     if (e.localizedMessage == "email is already registered") {
                         alreadyRegisteredEmail.call()

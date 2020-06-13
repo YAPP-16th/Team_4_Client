@@ -32,7 +32,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun startAutoSignin() {
-        SharedPreferenceManager.init(this)
+        //SharedPreferenceManager.init(this)
         viewModel.AutoLoginThread().run()
     }
 

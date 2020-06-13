@@ -42,6 +42,9 @@ class MatchListActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_match_list)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        binding.matchListIcBack.setOnClickListener {
+            onBackPressed()
+        }
 
         setRecyclerView()
     }

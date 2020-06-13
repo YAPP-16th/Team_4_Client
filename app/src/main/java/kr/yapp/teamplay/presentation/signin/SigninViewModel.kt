@@ -82,14 +82,15 @@ class SigninViewModel(
                 .subscribe({
                     Log.i("REFRESHTOKEN: \n", it.refreshToken)
                     PreferenceManager.setTokenKey(TeamPlayApplication.appContext, it.accessToken.token)
+                    PreferenceManager.setRefreshTokenKey(TeamPlayApplication.appContext, it.refreshToken)
                     PreferenceManager.setUserId(TeamPlayApplication.appContext, it.userInfo.id.toString())
                     signInSuccess.call()
-                    SharedPreferenceManager.setPref(
-                        ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
-                    SharedPreferenceManager.setPref(
-                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
-                    SharedPreferenceManager.setPref(
-                        ConstValue.CONST_USER_ID, it.userInfo.id)
+//                    SharedPreferenceManager.setPref(
+//                        ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
+//                    SharedPreferenceManager.setPref(
+//                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
+//                    SharedPreferenceManager.setPref(
+//                        ConstValue.CONST_USER_ID, it.userInfo.id)
                 }, {
                     signInPasswordError.call()
                 })

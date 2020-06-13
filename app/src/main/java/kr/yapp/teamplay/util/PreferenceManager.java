@@ -8,6 +8,8 @@ public class PreferenceManager {
 
     private static final String tokenKey = "tokenKey";
 
+    private static final String refreshTokenKey = "refreshToken";
+
     private static final String userIdKey = "userId";
 
 
@@ -25,6 +27,19 @@ public class PreferenceManager {
     public static String getTokenKey(Context context) {
         SharedPreferences prefs = getPreferences(context);
         String value = prefs.getString(tokenKey, "잉?");
+        return value;
+    }
+
+    public static void setRefreshTokenKey(Context context, String value) {
+        SharedPreferences prefs = getPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(refreshTokenKey, value);
+        editor.commit();
+    }
+
+    public static String getRefreshTokenKey(Context context) {
+        SharedPreferences prefs = getPreferences(context);
+        String value = prefs.getString(refreshTokenKey, "잉?");
         return value;
     }
 
