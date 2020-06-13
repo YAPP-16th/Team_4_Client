@@ -6,12 +6,12 @@ import kr.yapp.teamplay.data.auth.signin.SigninRequest
 import kr.yapp.teamplay.data.auth.signin.SigninResponse
 import kr.yapp.teamplay.data.auth.signup.SignupRequest
 import kr.yapp.teamplay.data.auth.signup.SignupResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import kr.yapp.teamplay.domain.entity.AccessToken
+import retrofit2.http.*
 
 interface AuthService {
+    @GET("/v1/auth/access-token")
+    fun requestAccessToken(@Header("refreshToken") refreshToken : String) : Single<AccessToken>
 
     @POST("/v1/auth/sign-in")
     fun signInByEmailRequest(@Body signInByEmailRequest : SigninRequest) : Single<SigninResponse>

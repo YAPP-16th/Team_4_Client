@@ -13,13 +13,9 @@ import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSigninPasswordBinding
 
 class SigninPasswordFragment(signinViewModel: SigninViewModel) : Fragment() {
-    private val signinViewModel: SigninViewModel
+    private val signinViewModel: SigninViewModel = signinViewModel
     private lateinit var binding: FragmentSigninPasswordBinding
     private lateinit var mActivity: SigninActivity
-
-    init {
-        this.signinViewModel = signinViewModel
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

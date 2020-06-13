@@ -15,7 +15,6 @@ class SignupViewModel(
     private val signupUsecase : SignupUsecase =
         SignupUsecase(AuthRepositoryImpl())
 ) : BaseViewModel() {
-
     val signUpEmailClick : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpPasswordClick : SingleLiveEvent<Void> = SingleLiveEvent()
     val signUpNicknameClick : SingleLiveEvent<Void> = SingleLiveEvent()
@@ -86,9 +85,9 @@ class SignupViewModel(
                     SharedPreferenceManager.setPref(
                         ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)
                     SharedPreferenceManager.setPref(
-                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
-                    SharedPreferenceManager.setPref(
                         ConstValue.CONST_USER_ID, it.userInfo.id)
+                    SharedPreferenceManager.setPref(
+                        ConstValue.CONST_REFRESH_TOKEN, it.refreshToken)
                 }, { e ->
                     if (e.localizedMessage == "email is already registered") {
                         alreadyRegisteredEmail.call()

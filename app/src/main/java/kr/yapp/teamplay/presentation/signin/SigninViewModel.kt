@@ -97,8 +97,4 @@ class SigninViewModel(
     fun setSigninEmail(email : String) {
         signinEmail.value = email
     }
-
-    fun setSigninPassword(password : String) {
-        signinPassword.value = password
-    }
 }

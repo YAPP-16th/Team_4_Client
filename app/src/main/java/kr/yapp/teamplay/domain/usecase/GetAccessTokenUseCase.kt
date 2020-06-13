@@ -2,12 +2,12 @@ package kr.yapp.teamplay.domain.usecase
 
 import io.reactivex.Single
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
-import kr.yapp.teamplay.data.auth.signin.SigninResponse
+import kr.yapp.teamplay.domain.entity.AccessToken
 import kr.yapp.teamplay.domain.repository.AuthRepository
 
-class SigninUsecase(
+class GetAccessTokenUseCase(
     private val repository : AuthRepository = AuthRepositoryImpl()
 ) {
-    fun doSignin(email : String, password : String) : Single<SigninResponse> =
-        repository.signInByEmailRequest(email, password)
+    fun requestAccessToken(refreshToken : String) : Single<AccessToken> =
+        repository.requestAccessToken(refreshToken)
 }

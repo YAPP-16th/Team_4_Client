@@ -7,6 +7,7 @@ import kr.yapp.teamplay.data.auth.signin.SigninRequest
 import kr.yapp.teamplay.data.auth.signin.SigninResponse
 import kr.yapp.teamplay.data.auth.signup.SignupRequest
 import kr.yapp.teamplay.data.auth.signup.SignupResponse
+import kr.yapp.teamplay.domain.entity.AccessToken
 import kr.yapp.teamplay.domain.repository.AuthRepository
 
 class AuthRepositoryImpl(
@@ -14,6 +15,10 @@ class AuthRepositoryImpl(
         RetrofitManager.getRetrofit().create(
             AuthService::class.java)
 ) : AuthRepository {
+    override fun requestAccessToken(refreshToken: String): Single<AccessToken> {
+        return authService.requestAccessToken(refreshToken)
+    }
+
     override fun signInByEmailRequest(email : String, hashedPassword : String): Single<SigninResponse> {
         val signinRequest =
             SigninRequest(

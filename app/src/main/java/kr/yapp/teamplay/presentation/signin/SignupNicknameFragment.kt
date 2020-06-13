@@ -13,13 +13,9 @@ import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSignupNicknameBinding
 
 class SignupNicknameFragment(signupViewModel: SignupViewModel) : Fragment() {
-    private val signupViewModel: SignupViewModel
+    private val signupViewModel: SignupViewModel = signupViewModel
     private lateinit var binding: FragmentSignupNicknameBinding
     private lateinit var mActivity: SignupActivity
-
-    init {
-        this.signupViewModel = signupViewModel
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
