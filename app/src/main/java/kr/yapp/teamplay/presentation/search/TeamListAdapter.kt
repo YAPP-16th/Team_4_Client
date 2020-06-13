@@ -17,7 +17,7 @@ import kr.yapp.teamplay.presentation.util.widget.BindableData
  */
 class TeamListAdapter(
     private val onFilterClick: () -> Unit = {},
-    private val onTeamClick: () -> Unit = {}
+    private val onTeamClick: (Int) -> Unit = {}
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     enum class ViewType {
@@ -82,11 +82,12 @@ class TeamListAdapter(
 
         class Item(
             val team: ClubListInfo,
-            val onTeamClick: () -> Unit
+            val onTeamClick: (id: Int) -> Unit
         ) : BindableData(ViewType.LIST.ordinal)
 
         override fun bindTo(item: Item) {
             binding.item = item
+            binding.root.setOnClickListener { item.onTeamClick.invoke(item.team.id) }
         }
     }
 }

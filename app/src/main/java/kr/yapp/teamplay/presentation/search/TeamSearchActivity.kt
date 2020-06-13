@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityTeamSearchBinding
 import kr.yapp.teamplay.presentation.filter.TeamSearchFilterActivity
+import kr.yapp.teamplay.presentation.search.join.TeamJoinActivity
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.singleTop
 
@@ -37,7 +38,7 @@ class TeamSearchActivity : AppCompatActivity() {
     private val teamListAdapter: TeamListAdapter by lazy {
         TeamListAdapter(
             onFilterClick = { TeamSearchFilterActivity.start(this) },
-            onTeamClick = { /* Move Team Join Activity */ }
+            onTeamClick = { clubId: Int -> TeamJoinActivity.start(this, clubId) }
         )
     }
 

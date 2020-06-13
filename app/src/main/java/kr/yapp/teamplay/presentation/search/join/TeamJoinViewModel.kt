@@ -23,7 +23,7 @@ class TeamJoinViewModel(
     fun getClubJoinInfo(clubId: Int) {
         clubRepository.getClubJoinInfo(clubId)
             .subscribeOn(Schedulers.io())
-            .subscribeOn(AndroidSchedulers.mainThread())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ clubJoinInfo ->
                 _uiState.value = TeamJoinUiState.Content(
                     character = clubJoinInfo.character ,
