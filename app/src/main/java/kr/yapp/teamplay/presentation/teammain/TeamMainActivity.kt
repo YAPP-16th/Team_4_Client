@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,7 @@ class TeamMainActivity : AppCompatActivity() {
         }
     }
 
+    private var isAdmin: Boolean = false
     private lateinit var binding: ActivityTeamMainBinding
 
     private val viewModel: TeamMainViewModel by lazy {
@@ -45,6 +47,9 @@ class TeamMainActivity : AppCompatActivity() {
         setLiveDataObserver()
         setRecyclerView()
         val position = intent.getIntExtra("id", -1)
+        isAdmin = intent.getBooleanExtra("isAdmin", false)
+        viewModel.isAdmin.value = isAdmin
+        Log.i("TTT", "isADmin : " + isAdmin)
         getTeamMainItem(position)
     }
 

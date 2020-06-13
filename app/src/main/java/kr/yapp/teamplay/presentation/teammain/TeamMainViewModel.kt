@@ -40,6 +40,8 @@ class TeamMainViewModel(
     private val _matchListClick = SingleLiveEvent<Any>()
     val matchListClick : LiveData<Any> get() = _matchListClick
 
+    var isAdmin: MutableLiveData<Boolean> = MutableLiveData()
+
     override fun onCleared() {
         compositeDisposable.dispose()
         super.onCleared()

@@ -15,7 +15,7 @@ import org.jetbrains.anko.windowManager
 
 class MyTeamAdapter(
     private val onCardClick: () -> Unit = {},
-    private val onCardClickToGoTeamMain: (position : Int) -> Unit = {}
+    private val onCardClickToGoTeamMain: (id: Int, position : Int) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     enum class ViewType {
@@ -77,9 +77,9 @@ class MyTeamAdapter(
 
         private val displayMetrics = DisplayMetrics()
 
-        fun bindTo(myTeam: MyTeam, position: Int) {
+        fun bindTo(myTeam: MyTeam, id: Int) {
             binding.myTeam = myTeam
-            binding.root.setOnClickListener { onCardClickToGoTeamMain(position) }
+            binding.root.setOnClickListener { onCardClickToGoTeamMain(id, adapterPosition) }
             itemView.context.windowManager.defaultDisplay.getMetrics(displayMetrics)
             itemView.layoutParams.width = (displayMetrics.widthPixels.toDouble() - 64.dpToPixel()).toInt()
         }

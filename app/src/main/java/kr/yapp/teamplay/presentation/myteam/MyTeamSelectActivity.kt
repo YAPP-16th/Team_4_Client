@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivitySelectMyTeamBinding
 import kr.yapp.teamplay.domain.entity.MyTeam
+import kr.yapp.teamplay.domain.entity.UserRole
 import kr.yapp.teamplay.presentation.myteam.create.TeamCreateActivity
 import kr.yapp.teamplay.presentation.search.TeamSearchActivity
 import kr.yapp.teamplay.presentation.teammain.TeamMainActivity
@@ -90,8 +91,9 @@ class MyTeamSelectActivity : AppCompatActivity() {
             setHasFixedSize(true)
             adapter = MyTeamAdapter(
                 onCardClick = { TeamCreateActivity.start(this@MyTeamSelectActivity) },
-                onCardClickToGoTeamMain = {id ->
+                onCardClickToGoTeamMain = {id, position ->
                     val intent = Intent(this@MyTeamSelectActivity, TeamMainActivity::class.java)
+                    intent.putExtra("isAdmin", viewModel.clubInfoList.value!!.clubsInfo[position].userRole == UserRole.ADMIN)
                     intent.putExtra("id" ,id)
                     startActivity(intent)
                 }
