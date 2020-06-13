@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_signin_password.*
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.FragmentSigninPasswordBinding
+import kr.yapp.teamplay.util.PreferenceManager
 
 class SigninPasswordFragment(signinViewModel: SigninViewModel) : Fragment() {
     private val signinViewModel: SigninViewModel = signinViewModel

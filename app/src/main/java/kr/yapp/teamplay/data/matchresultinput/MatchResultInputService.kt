@@ -7,7 +7,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface MatchResultInputService {
-    @POST("https://api.fonnie.shop/v1/matches/{matchId}/matchResult")
+    @POST("/v1/matches/{matchId}/matchResult")
     fun matchResultInput(@Path("matchId") matchId: Int, @Body matchResultInfo: MatchResultInfo)
             : Single<Void>
 }

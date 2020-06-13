@@ -8,12 +8,14 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import kr.yapp.teamplay.data.SharedPreferenceManager
+import kr.yapp.teamplay.TeamPlayApplication
 import kr.yapp.teamplay.data.auth.AuthRepositoryImpl
 import kr.yapp.teamplay.domain.entity.ConstValue
 import kr.yapp.teamplay.domain.usecase.EmailCheckUsecase
 import kr.yapp.teamplay.domain.usecase.SigninUsecase
 import kr.yapp.teamplay.presentation.util.SingleLiveEvent
 import kr.yapp.teamplay.presentation.util.sha256
+import kr.yapp.teamplay.util.PreferenceManager
 
 class SigninViewModel(
     private val signinUsecase: SigninUsecase =
@@ -68,7 +70,7 @@ class SigninViewModel(
         }
     }
 
-    fun submitEmailPassword() {
+    fun submitEmailPassword(function: (token: String) -> Unit = {}) {
         val passwordRegExp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[0-9]).{8,20}$".toRegex()
         val matchResult = passwordRegExp.matches(signinPassword.value.toString())
 
@@ -78,6 +80,9 @@ class SigninViewModel(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    Log.i("REFRESHTOKEN: \n", it.refreshToken)
+                    PreferenceManager.setTokenKey(TeamPlayApplication.appContext, it.accessToken.token)
+                    PreferenceManager.setUserId(TeamPlayApplication.appContext, it.userInfo.id.toString())
                     signInSuccess.call()
                     SharedPreferenceManager.setPref(
                         ConstValue.CONST_ACCESS_TOKEN, it.accessToken.token)

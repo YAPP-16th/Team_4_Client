@@ -61,6 +61,21 @@ class TeamCreateActivity : AppCompatActivity() {
         binding.questionCreateButton.setOnClickListener {
             addQuestionEditText()
         }
+        binding.teamCreateButton.setOnClickListener {
+            viewModel.run {
+                createTeam (onClick = {
+                    createClubRequest.name = binding.teamCreateNameEditText.text.toString()
+                    createClubRequest.createTeamDate.plus(binding.appCompatSpinner.selectedItem)
+                        .plus(binding.appCompatSpinner2.selectedItem)
+                        .plus(binding.appCompatSpinner3.selectedItem)
+                    createClubRequest.location = binding.appCompatEditText2.text.toString()
+                    createClubRequest.introduce = binding.appCompatEditText.text.toString()
+                    createClubRequest.contact = binding.teamCreateLeaveContact.text.toString()
+                }, onFinish = {
+                    finish()
+                })
+            }
+        }
     }
 
     private fun addQuestionEditText() {

@@ -40,6 +40,8 @@ class TeamMainViewModel(
     private val _matchListClick = SingleLiveEvent<Any>()
     val matchListClick : LiveData<Any> get() = _matchListClick
 
+    var isAdmin: MutableLiveData<Boolean> = MutableLiveData()
+
     override fun onCleared() {
         compositeDisposable.dispose()
         super.onCleared()
@@ -53,9 +55,9 @@ class TeamMainViewModel(
         _showShimmer.value = false
     }
 
-    fun fetchTeamMainItem(toast: (message: String?) -> Unit = {}): Disposable {
+    fun fetchTeamMainItem(position : Int, toast: (message: String?) -> Unit = {}): Disposable {
         startShimmer()
-        return teamMainUseCase.setClubInfo("1")
+        return teamMainUseCase.setClubInfo(position.toString())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ item ->

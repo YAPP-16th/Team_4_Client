@@ -4,7 +4,8 @@
 package kr.yapp.teamplay.domain.entity
 
 data class MyTeam(
-    val category: String = "basketball",
+    val id: String = "-1",
+    val category: String = "BASKETBALL",
     val teamName: String = "상암동 농구클럽",
     val teamLocation: String = "서울시 마포구 우리기술사옥",
     val since: String = "2020.04.30",
