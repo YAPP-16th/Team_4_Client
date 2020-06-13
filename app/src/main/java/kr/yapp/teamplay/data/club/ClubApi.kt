@@ -3,9 +3,9 @@
  */
 package kr.yapp.teamplay.data.club
 
+import io.reactivex.Completable
 import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ClubApi {
 
@@ -16,4 +16,10 @@ interface ClubApi {
     fun getClubJoinInfo(
         @Path("clubId") clubId: Int
     ): Single<GetClubJoinInfoResponse>
+
+    @POST("/clubs/join")
+    fun requestClubJoin(
+        @Header("accessToken") accessToken: String,
+        @Body clubId: Int
+    ): Completable
 }

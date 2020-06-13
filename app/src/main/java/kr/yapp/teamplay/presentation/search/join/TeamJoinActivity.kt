@@ -15,9 +15,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityTeamJoinBinding
 import kr.yapp.teamplay.util.Constant
+import kr.yapp.teamplay.util.PreferenceManager
 import kr.yapp.teamplay.util.dpToPixel
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
@@ -86,8 +88,10 @@ class TeamJoinActivity : AppCompatActivity() {
                         })
                     }
                 }
-                is TeamJoinUiState.Error -> {
-                    toast(state.throwable.message.toString())
+                is TeamJoinUiState.Error -> toast(state.message)
+                TeamJoinUiState.JoinSuccess -> {
+                    toast(state.message)
+                    finish()
                 }
             }
         })
@@ -95,6 +99,9 @@ class TeamJoinActivity : AppCompatActivity() {
 
     private fun setListener() {
         binding.backButton.setOnClickListener { onBackPressed() }
-        binding.requestTeamJoin.setOnClickListener { /* 가입신청 API 연동 */ }
+        binding.requestTeamJoin.setOnClickListener {
+            val accessToken: String = PreferenceManager.getTokenKey(applicationContext)
+            viewModel.requestClubJoin(accessToken, clubId)
+        }
     }
 }

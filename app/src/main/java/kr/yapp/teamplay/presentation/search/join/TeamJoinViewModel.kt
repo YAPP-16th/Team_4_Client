@@ -36,7 +36,22 @@ class TeamJoinViewModel(
                 )
             }, { throwable ->
                 Log.d("TeamJoinViewModel", throwable.message.toString())
-                _uiState.value = TeamJoinUiState.Error(throwable)
+                _uiState.value = TeamJoinUiState.Error(message = "동호회 정보를 불러오지 못하였습니다", throwable = throwable)
+            })
+            .addDisposable()
+    }
+
+    fun requestClubJoin(
+        accessToken: String,
+        clubId: Int
+    ) {
+        clubRepository.requestClubJoin(accessToken, clubId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                _uiState.value = TeamJoinUiState.JoinSuccess
+            }, { throwable ->
+                _uiState.value = TeamJoinUiState.Error(message = "이미 가입된 동호회 입니다", throwable = throwable)
             })
             .addDisposable()
     }

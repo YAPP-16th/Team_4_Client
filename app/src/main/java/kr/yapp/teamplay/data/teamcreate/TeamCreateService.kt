@@ -7,5 +7,8 @@ import retrofit2.http.POST
 
 interface TeamCreateService {
     @POST("/clubs")
-    fun createTeam(@Header("accessToken") accessToken: String, @Body createClubRequest: CreateClubRequest) : Single<Void>
+    fun createTeam(
+        @Header("accessToken") accessToken: String,
+        @Body createClubRequest: CreateClubRequest
+    ) : Single<Void>
 }
