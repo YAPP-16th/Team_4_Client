@@ -45,5 +45,6 @@ fun GetClubJoinInfoResponse.toEntity(): ClubJoinInfo =
         location = simpleClubInfo.location,
         memberCount = simpleClubInfo.memberCount,
         teamName = simpleClubInfo.teamName,
-        questions = questions
+        questions = questions,
+        message = message
     )
