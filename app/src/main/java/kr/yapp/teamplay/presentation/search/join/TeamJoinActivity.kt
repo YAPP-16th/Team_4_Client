@@ -9,6 +9,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityTeamJoinBinding
 import org.jetbrains.anko.intentFor
@@ -60,6 +62,11 @@ class TeamJoinActivity : AppCompatActivity() {
                     binding.teamCreateLocation.text = state.location
                     binding.teamCreateMemberCount.text = "${state.memberCount}명"
                     binding.teamCreateIntroduce.text = state.message
+                    binding.teamJoinQuestions.apply {
+                        layoutManager = LinearLayoutManager(this@TeamJoinActivity)
+                        itemAnimator = DefaultItemAnimator()
+                        adapter = TeamJoinQuestionAdapter(state.questions)
+                    }
                 }
                 is TeamJoinUiState.Error -> {
                     toast(state.throwable.message.toString())
