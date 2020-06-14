@@ -13,6 +13,7 @@ import kr.yapp.teamplay.R
 
 import kr.yapp.teamplay.databinding.ActivityMatchDetailedResultBinding
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.toast
 
 class MatchDetailedResultActivity : AppCompatActivity() {
 
@@ -37,8 +38,8 @@ class MatchDetailedResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBinding()
-        setLiveDataObserver()
         setRecyclerView()
+        setLiveDataObserver()
         getMatchDetailedResult()
     }
 
@@ -51,8 +52,10 @@ class MatchDetailedResultActivity : AppCompatActivity() {
     private fun setLiveDataObserver() {
         viewModel.uiState.observe(this, Observer { state ->
             when(state) {
-                is MatchDetailedResultUiState.Content -> TODO()
-                is MatchDetailedResultUiState.Error -> TODO()
+                is MatchDetailedResultUiState.Content ->{
+                    // TODO uiState에 따라서 화면 갱신
+                }
+                is MatchDetailedResultUiState.Error -> toast(state.message)
             }
         })
     }

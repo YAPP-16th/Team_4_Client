@@ -1,14 +1,12 @@
 package kr.yapp.teamplay.presentation.teammain
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import kr.yapp.teamplay.R
 import kr.yapp.teamplay.databinding.ActivityPopupMatchResultBinding
+import kr.yapp.teamplay.presentation.match_result.MatchDetailedResultActivity
 
 class PopupMatchResultActivity : AppCompatActivity() {
 
@@ -21,6 +19,7 @@ class PopupMatchResultActivity : AppCompatActivity() {
         isWin = intent.getBooleanExtra("isWin", false)
         teamName = intent.getStringExtra("teamName")
         setDataBinding()
+        setListener()
         setUI()
     }
 
@@ -38,6 +37,13 @@ class PopupMatchResultActivity : AppCompatActivity() {
             binding.itemResultTypeMatchResultIvLose.visibility = View.VISIBLE
             binding.popupMatchResultResultIvWin.visibility = View.INVISIBLE
             binding.popupMatchResultDescription.setText(String.format("%s 과의 경기에서 패배하셨습니다.", teamName))
+        }
+    }
+
+    private fun setListener() {
+        binding.popupMatchResultGoButton.setOnClickListener {
+            // TODO matchId 를 어디서 가져오지?
+            MatchDetailedResultActivity.start(this, matchId = -1)
         }
     }
 }
