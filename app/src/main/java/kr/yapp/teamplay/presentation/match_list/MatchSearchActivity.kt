@@ -116,14 +116,14 @@ class MatchSearchActivity : AppCompatActivity() {
         }
 
         binding.msIcBack.setOnClickListener {
-            onBackPressed()
+            finishSearchActivity()
         }
     }
 
     private fun finishSearchActivity() {
         val intent = Intent()
         intent.putExtra("search", search)
-        setResult(2, intent)
+        setResult(1, intent)
         finish()
     }
 
@@ -152,5 +152,10 @@ class MatchSearchActivity : AppCompatActivity() {
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             statusBarColor = resources.getColor(R.color.colorBasketBallRed2)
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishSearchActivity()
     }
 }
