@@ -5,15 +5,15 @@ import kr.yapp.teamplay.data.RetrofitManager
 import kr.yapp.teamplay.domain.repository.MatchRepository
 
 class MatchRepositoryImpl(
-    private val matchService: MatchService =
-        RetrofitManager.create(MatchService::class.java)
+    private val matchApi: MatchApi =
+        RetrofitManager.create(MatchApi::class.java)
 ) : MatchRepository {
     override fun getMatchList(
         currentPage: Int?, startTimeFrom: String?
         , startTimeTo: String?, location: String?
         , matchStyle: String?
     ) : Single<MatchListResponse>{
-        return matchService.getMatchList(
+        return matchApi.getMatchList(
             null,null, location, matchStyle, currentPage,null,null,startTimeFrom, startTimeTo
         )
     }
