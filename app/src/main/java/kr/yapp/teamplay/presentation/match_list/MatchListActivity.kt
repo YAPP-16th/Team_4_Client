@@ -82,7 +82,7 @@ class MatchListActivity : AppCompatActivity() {
     private fun startDetailList() {
         val intent = Intent(this, MatchDetailActivity::class.java)
             .putExtra("matchInfo",viewModel.matchInfo.value)
-        startActivity(intent)
+        startActivityForResult(intent, 2)
     }
 
     private fun startMatchSearchActivity() {
@@ -98,10 +98,12 @@ class MatchListActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode==1 && resultCode==2) {
+        if (requestCode==1 && resultCode==1) {
             val search : Search = data?.getSerializableExtra("search") as Search
             viewModel.setSearch(search)
             viewModel.getSearchListData()
+        } else if (requestCode==2 && resultCode==2) {
+            onResume()
         }
     }
 
@@ -116,5 +118,11 @@ class MatchListActivity : AppCompatActivity() {
             }
             super.onScrolled(recyclerView, dx, dy)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.currentPage.value = 1
+        setRecyclerView()
     }
 }

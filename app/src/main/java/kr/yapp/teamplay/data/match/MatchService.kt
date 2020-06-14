@@ -1,8 +1,7 @@
 package kr.yapp.teamplay.data.match
 
 import io.reactivex.Single
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface MatchService {
     @GET("/v1/matches")
@@ -15,4 +14,8 @@ interface MatchService {
                      @Query("sortBy") sortBy : String?,
                      @Query("startTimeFrom") startTimeFrom : String?,
                      @Query("startTimeTo") startTimeTo : String?) : Single<MatchListResponse>
+
+    @POST("/v1/matches/{matchId}/matchRequest")
+    fun requestMatch(@Body createMatchRequest: CreateMatchRequest,
+                     @Path("matchId") matchId: Long) : Single<Any>
 }

@@ -21,4 +21,8 @@ class MatchRepositoryImpl(
     override fun getMatchDetail() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun requestMatch(createMatchRequest: CreateMatchRequest, matchId: Long): Single<Any> {
+        return matchService.requestMatch(createMatchRequest, matchId)
+    }
 }

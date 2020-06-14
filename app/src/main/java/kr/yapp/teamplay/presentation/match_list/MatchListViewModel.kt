@@ -30,8 +30,7 @@ class MatchListViewModel(
     private val _matchInfo: MutableLiveData<MatchInfo> = MutableLiveData()
     val matchInfo: LiveData<MatchInfo> get() = _matchInfo
 
-    private val _currentPage: MutableLiveData<Int> = MutableLiveData()
-    val currentPage: LiveData<Int> get() = _currentPage
+    val currentPage: MutableLiveData<Int> = MutableLiveData()
 
     private val _matchFilter: MutableLiveData<String> = MutableLiveData()
     val matchFilter: LiveData<String> get() = _matchFilter
@@ -40,7 +39,7 @@ class MatchListViewModel(
     val search: LiveData<Search> get() = _search
 
     init {
-        _currentPage.value = 1
+        currentPage.value = 1
     }
 
     fun clickMatchListItem(matchInfo: MatchInfo) {
@@ -64,7 +63,7 @@ class MatchListViewModel(
                 if (currentPage.value!! <= it.totalPage) {
                     _matchList.value = it.matchList
                     _matchFilter.value = it.filterTitle
-                    _currentPage.value =
+                    currentPage.value =
                         it.currentPage + 2 // Response.currentPage is View.currentPage minus 1
                 }
             }, {
