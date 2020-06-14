@@ -2,6 +2,8 @@ package kr.yapp.teamplay.data.match
 
 import io.reactivex.Single
 import kr.yapp.teamplay.data.RetrofitManager
+import kr.yapp.teamplay.domain.entity.matchresult.DetailedMatchResult
+import kr.yapp.teamplay.domain.entity.matchresult.MatchIndividualScore
 import kr.yapp.teamplay.domain.repository.MatchRepository
 
 class MatchRepositoryImpl(
@@ -18,7 +20,14 @@ class MatchRepositoryImpl(
         )
     }
 
-    override fun getMatchDetail() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getDetailedMatchResult(matchId: Int): Single<DetailedMatchResult> =
+        matchApi.getDetailedMatchResult(matchId = matchId)
+            .map { it.toEntity() }
+
+    override fun getDetailedMatchIndividualResult(matchId: Int): Single<List<MatchIndividualScore>> =
+        matchApi.getDetailedMatchIndividualResult(matchId = matchId)
+            .map { list ->
+                list.map { it.toEntity() }
+            }
+
 }

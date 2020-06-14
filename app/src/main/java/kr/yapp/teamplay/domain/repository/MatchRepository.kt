@@ -1,11 +1,9 @@
 package kr.yapp.teamplay.domain.repository
 
 import io.reactivex.Single
-import kr.yapp.teamplay.data.match.MatchDetailedResultResponse
-import kr.yapp.teamplay.data.match.MatchIndividualResultResponse
 import kr.yapp.teamplay.data.match.MatchListResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
+import kr.yapp.teamplay.domain.entity.matchresult.DetailedMatchResult
+import kr.yapp.teamplay.domain.entity.matchresult.MatchIndividualScore
 
 interface MatchRepository {
 
@@ -17,13 +15,8 @@ interface MatchRepository {
         matchStyle: String?
     ): Single<MatchListResponse>
 
-    @GET("/v1/matches/{matchId}/result/detail")
-    fun getDetailedMatchResult(
-        @Path("matchId") matchId: Int
-    ): Single<MatchDetailedResultResponse>
+    fun getDetailedMatchResult(matchId: Int): Single<DetailedMatchResult>
 
-    @GET("/v1/matches/{matchId}/result/individual")
-    fun getDetailedMatchIndividualResult(
-        @Path("matchId") matchId: Int
-    ): Single<List<MatchIndividualResultResponse>>
+    fun getDetailedMatchIndividualResult(matchId: Int): Single<List<MatchIndividualScore>>
+
 }
