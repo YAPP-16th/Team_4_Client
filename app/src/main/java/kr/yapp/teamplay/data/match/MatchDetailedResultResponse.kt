@@ -4,6 +4,8 @@
 package kr.yapp.teamplay.data.match
 
 import com.google.gson.annotations.SerializedName
+import kr.yapp.teamplay.domain.entity.matchresult.DetailedMatchResult
+import kr.yapp.teamplay.domain.entity.matchresult.MatchResultScorePerType
 
 data class MatchDetailedResultResponse(
 
@@ -14,7 +16,7 @@ data class MatchDetailedResultResponse(
     val hostName: String,
 
     @SerializedName("matchDetailResultScore")
-    val matchDetailResultScore: MatchDetailResultScore
+    val matchDetailResultScore: List<MatchDetailResultScore>
 ) {
 
     data class MatchDetailResultScore(
@@ -29,3 +31,17 @@ data class MatchDetailedResultResponse(
         val matchResultType: String
     )
 }
+
+fun MatchDetailedResultResponse.MatchDetailResultScore.toEntity(): MatchResultScorePerType =
+    MatchResultScorePerType(
+        guestScore = guestScore,
+        hostScore = hostScore,
+        matchResultType = matchResultType
+    )
+
+fun MatchDetailedResultResponse.toEntity(): DetailedMatchResult =
+    DetailedMatchResult(
+        guestName = guestName,
+        hostName = hostName,
+        matchDetailResultScores = matchDetailResultScore.map { it.toEntity() }
+    )

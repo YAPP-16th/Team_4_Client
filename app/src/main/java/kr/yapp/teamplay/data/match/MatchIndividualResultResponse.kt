@@ -4,6 +4,7 @@
 package kr.yapp.teamplay.data.match
 
 import com.google.gson.annotations.SerializedName
+import kr.yapp.teamplay.domain.entity.matchresult.MatchIndividualScore
 
 data class MatchIndividualResultResponse(
 
@@ -16,3 +17,10 @@ data class MatchIndividualResultResponse(
     @SerializedName("score")
     val score: Int
 )
+
+fun MatchIndividualResultResponse.toEntity() =
+    MatchIndividualScore(
+        matchResultType = matchResultType,
+        receiver = receiver,
+        score = score
+    )
