@@ -40,6 +40,7 @@ class MatchDetailedResultActivity : AppCompatActivity() {
         setBinding()
         setRecyclerView()
         setLiveDataObserver()
+        setListener()
         getMatchDetailedResult()
     }
 
@@ -62,6 +63,10 @@ class MatchDetailedResultActivity : AppCompatActivity() {
 
     private fun setRecyclerView() {
         // TODO 결기 상세 결과, 개인 기록 RecyclerView 초기화
+    }
+
+    private fun setListener() {
+        binding.backButton.setOnClickListener { onBackPressed() }
     }
 
     private fun getMatchDetailedResult() {
