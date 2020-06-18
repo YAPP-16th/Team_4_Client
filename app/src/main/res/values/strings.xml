@@ -29,6 +29,7 @@
     <string name="signup_error_password">올바른 비밀번호를 입력해주세요.</string>
     <string name="signup_error_nickname">올바른 닉네임을 입력해주세요.</string>
 
+    <string name="myTeamLogout">로그아웃</string>
     <string name="myTeamUserNameHint">안녕하세요,</string>
     <string name="myTeamUserNameExample">상암동 데릭로즈님</string>
     <string name="myTeamSinceExample">2017.02.11 창설  |  현재회원수 52명</string>

@@ -31,6 +31,10 @@ class MyTeamSelectViewModel(
 
     var clubInfoList: MutableLiveData<MyTeamResponse> = MutableLiveData()
 
+    val logoutClick : SingleLiveEvent<Void> = SingleLiveEvent()
+
+    fun logoutButtonClick() = logoutClick.call()
+
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 

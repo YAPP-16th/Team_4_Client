@@ -22,6 +22,7 @@ import kr.yapp.teamplay.domain.entity.MyTeam
 import kr.yapp.teamplay.domain.entity.UserRole
 import kr.yapp.teamplay.presentation.myteam.create.TeamCreateActivity
 import kr.yapp.teamplay.presentation.search.TeamSearchActivity
+import kr.yapp.teamplay.presentation.signin.SigninActivity
 import kr.yapp.teamplay.presentation.teammain.TeamMainActivity
 import kr.yapp.teamplay.util.PreferenceManager
 
@@ -83,6 +84,11 @@ class MyTeamSelectActivity : AppCompatActivity() {
                 (adapter as MyTeamAdapter).updateMyTeam(list)
                 adapter?.notifyDataSetChanged()
             }
+        })
+        viewModel.logoutClick.observe(this, Observer {
+            PreferenceManager.setTokenKey(TeamPlayApplication.appContext, "")
+            PreferenceManager.setRefreshTokenKey(TeamPlayApplication.appContext, "")
+            SigninActivity.start(this)
         })
     }
 
